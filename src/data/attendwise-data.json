@@ -1,0 +1,9078 @@
+{
+  "metadata": {
+    "appName": "AttendWise",
+    "semester": "Semester 3 - B.Tech Mechanical (Sec A)",
+    "startDate": "2026-07-06",
+    "endDate": "2026-11-05",
+    "currentDate": "2026-07-23",
+    "defaultThreshold": 0.75,
+    "institution": "Department of Mechanical Engineering"
+  },
+  "subjects": [
+    {
+      "id": "5048",
+      "code": "MA301",
+      "name": "Probability, Statistics and Complex Variables",
+      "type": "lecture",
+      "teacher": "Dr. R. K. Sharma",
+      "room": "LH-201",
+      "defaultTime": "09:10 AM - 10:10 AM",
+      "defaultAttended": 10,
+      "defaultTotal": 12
+    },
+    {
+      "id": "5049",
+      "code": "ME301L",
+      "name": "Fluid Mechanics and Hydraulic Machines Lab",
+      "type": "lab",
+      "teacher": "Prof. S. N. Roy",
+      "room": "FM Lab",
+      "defaultTime": "11:10 AM - 01:10 PM",
+      "defaultAttended": 10,
+      "defaultTotal": 12
+    },
+    {
+      "id": "5050",
+      "code": "ME301",
+      "name": "Fluid Mechanics and Hydraulic Machines",
+      "type": "lecture",
+      "teacher": "Dr. P. K. Mishra",
+      "room": "LH-201",
+      "defaultTime": "09:10 AM - 10:10 AM",
+      "defaultAttended": 10,
+      "defaultTotal": 12
+    },
+    {
+      "id": "5051",
+      "code": "MA301L",
+      "name": "Computational Mathematics Lab",
+      "type": "lab",
+      "teacher": "Dr. A. K. Gupta",
+      "room": "Comp Lab 1",
+      "defaultTime": "11:10 AM - 01:10 PM",
+      "defaultAttended": 0,
+      "defaultTotal": 2
+    },
+    {
+      "id": "5052",
+      "code": "ME302L",
+      "name": "Design Thinking and Ideation",
+      "type": "lab",
+      "teacher": "Prof. M. S. Verma",
+      "room": "Design Studio",
+      "defaultTime": "11:10 AM - 01:10 PM",
+      "defaultAttended": 4,
+      "defaultTotal": 6
+    },
+    {
+      "id": "5053",
+      "code": "ME303L",
+      "name": "Production Technology Lab",
+      "type": "lab",
+      "teacher": "Prof. V. K. Singh",
+      "room": "Prod Lab",
+      "defaultTime": "11:10 AM - 01:10 PM",
+      "defaultAttended": 8,
+      "defaultTotal": 10
+    },
+    {
+      "id": "5054",
+      "code": "ME304",
+      "name": "Material Science and Metallurgy",
+      "type": "lecture",
+      "teacher": "Dr. H. C. Prasad",
+      "room": "LH-202",
+      "defaultTime": "09:10 AM - 10:10 AM",
+      "defaultAttended": 10,
+      "defaultTotal": 12
+    },
+    {
+      "id": "5055",
+      "code": "ME303",
+      "name": "Production Technology",
+      "type": "lecture",
+      "teacher": "Dr. S. K. Das",
+      "room": "LH-202",
+      "defaultTime": "09:10 AM - 10:10 AM",
+      "defaultAttended": 11,
+      "defaultTotal": 13
+    },
+    {
+      "id": "5056",
+      "code": "ME304L",
+      "name": "Material Science and Mechanics of Solids Lab",
+      "type": "lab",
+      "teacher": "Prof. R. N. Mukherjee",
+      "room": "MOS Lab",
+      "defaultTime": "11:10 AM - 01:10 PM",
+      "defaultAttended": 8,
+      "defaultTotal": 10
+    },
+    {
+      "id": "5057",
+      "code": "ME305",
+      "name": "Mechanics of Solids",
+      "type": "lecture",
+      "teacher": "Dr. B. C. Ray",
+      "room": "LH-201",
+      "defaultTime": "09:10 AM - 10:10 AM",
+      "defaultAttended": 12,
+      "defaultTotal": 14
+    }
+  ],
+  "calendar": [
+    {
+      "date": "2026-07-06",
+      "day": "Monday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-07",
+      "day": "Tuesday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5052,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "15:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-08",
+      "day": "Wednesday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5049,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5053,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-09",
+      "day": "Thursday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5049,
+          "periods": 2,
+          "start": "11:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5052,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "15:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5056,
+          "periods": 2,
+          "start": "11:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-10",
+      "day": "Friday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5053,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5056,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-13",
+      "day": "Monday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-14",
+      "day": "Tuesday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5052,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "15:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-15",
+      "day": "Wednesday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5049,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5053,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-16",
+      "day": "Thursday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5049,
+          "periods": 2,
+          "start": "11:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5052,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "15:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5056,
+          "periods": 2,
+          "start": "11:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-17",
+      "day": "Friday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5053,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5056,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-18",
+      "day": "Saturday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5051,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-20",
+      "day": "Monday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-21",
+      "day": "Tuesday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5052,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "15:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-22",
+      "day": "Wednesday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5049,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5053,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-23",
+      "day": "Thursday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5049,
+          "periods": 2,
+          "start": "11:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5052,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "15:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5056,
+          "periods": 2,
+          "start": "11:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-24",
+      "day": "Friday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5053,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5056,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-25",
+      "day": "Saturday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5051,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-27",
+      "day": "Monday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-28",
+      "day": "Tuesday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5052,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "15:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-29",
+      "day": "Wednesday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5049,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5053,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-30",
+      "day": "Thursday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5049,
+          "periods": 2,
+          "start": "11:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5052,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "15:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5056,
+          "periods": 2,
+          "start": "11:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-31",
+      "day": "Friday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5053,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5056,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-01",
+      "day": "Saturday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5051,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-03",
+      "day": "Monday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-04",
+      "day": "Tuesday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5052,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "15:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-05",
+      "day": "Wednesday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5049,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5053,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-06",
+      "day": "Thursday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5049,
+          "periods": 2,
+          "start": "11:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5052,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "15:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5056,
+          "periods": 2,
+          "start": "11:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-07",
+      "day": "Friday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5053,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5056,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-08",
+      "day": "Saturday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5051,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-11",
+      "day": "Tuesday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5052,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "15:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-12",
+      "day": "Wednesday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5049,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5053,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-13",
+      "day": "Thursday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5049,
+          "periods": 2,
+          "start": "11:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5052,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "15:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5056,
+          "periods": 2,
+          "start": "11:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-14",
+      "day": "Friday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5053,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5056,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-17",
+      "day": "Monday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-18",
+      "day": "Tuesday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5052,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "15:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-19",
+      "day": "Wednesday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5049,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5053,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-20",
+      "day": "Thursday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5049,
+          "periods": 2,
+          "start": "11:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5052,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "15:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5056,
+          "periods": 2,
+          "start": "11:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-21",
+      "day": "Friday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5053,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5056,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-22",
+      "day": "Saturday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5051,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-24",
+      "day": "Monday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-25",
+      "day": "Tuesday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5052,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "15:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-26",
+      "day": "Wednesday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5049,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5053,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-27",
+      "day": "Thursday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5049,
+          "periods": 2,
+          "start": "11:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5052,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "15:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5056,
+          "periods": 2,
+          "start": "11:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-28",
+      "day": "Friday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5053,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5056,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-29",
+      "day": "Saturday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5051,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-08",
+      "day": "Tuesday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5052,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "15:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-09",
+      "day": "Wednesday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5049,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5053,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-10",
+      "day": "Thursday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5049,
+          "periods": 2,
+          "start": "11:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5052,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "15:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5056,
+          "periods": 2,
+          "start": "11:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-11",
+      "day": "Friday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5053,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5056,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-12",
+      "day": "Saturday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5051,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-15",
+      "day": "Tuesday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5052,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "15:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-16",
+      "day": "Wednesday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5049,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5053,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-17",
+      "day": "Thursday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5049,
+          "periods": 2,
+          "start": "11:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5052,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "15:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5056,
+          "periods": 2,
+          "start": "11:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-18",
+      "day": "Friday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5053,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5056,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-19",
+      "day": "Saturday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5051,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-21",
+      "day": "Monday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-22",
+      "day": "Tuesday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5052,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "15:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-23",
+      "day": "Wednesday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5049,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5053,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-24",
+      "day": "Thursday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5049,
+          "periods": 2,
+          "start": "11:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5052,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "15:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5056,
+          "periods": 2,
+          "start": "11:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-25",
+      "day": "Friday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5053,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5056,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-26",
+      "day": "Saturday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5051,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-28",
+      "day": "Monday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-29",
+      "day": "Tuesday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5052,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "15:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-30",
+      "day": "Wednesday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5049,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5053,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-01",
+      "day": "Thursday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5049,
+          "periods": 2,
+          "start": "11:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5052,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "15:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5056,
+          "periods": 2,
+          "start": "11:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-02",
+      "day": "Friday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5053,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5056,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "day": "Saturday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5051,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-05",
+      "day": "Monday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-06",
+      "day": "Tuesday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5052,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "15:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-07",
+      "day": "Wednesday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5049,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5053,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-08",
+      "day": "Thursday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5049,
+          "periods": 2,
+          "start": "11:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5052,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "15:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5056,
+          "periods": 2,
+          "start": "11:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-09",
+      "day": "Friday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5053,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5056,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-10",
+      "day": "Saturday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5051,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-12",
+      "day": "Monday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-13",
+      "day": "Tuesday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5052,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "15:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-14",
+      "day": "Wednesday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5049,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5053,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "day": "Thursday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5049,
+          "periods": 2,
+          "start": "11:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5052,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "15:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5056,
+          "periods": 2,
+          "start": "11:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-23",
+      "day": "Friday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5053,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5056,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-24",
+      "day": "Saturday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5051,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-26",
+      "day": "Monday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-27",
+      "day": "Tuesday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5052,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "15:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-28",
+      "day": "Wednesday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5049,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5053,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-29",
+      "day": "Thursday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5049,
+          "periods": 2,
+          "start": "11:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5052,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "15:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5056,
+          "periods": 2,
+          "start": "11:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-30",
+      "day": "Friday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5053,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5056,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-31",
+      "day": "Saturday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5051,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-02",
+      "day": "Monday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-03",
+      "day": "Tuesday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5052,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "15:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-04",
+      "day": "Wednesday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5048,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        },
+        {
+          "subjectId": 5049,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5050,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5053,
+          "periods": 2,
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "12:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "11:10",
+          "end": "12:10"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "day": "Thursday",
+      "type": "instructional",
+      "sessions": [
+        {
+          "subjectId": 5049,
+          "periods": 2,
+          "start": "11:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5052,
+          "periods": 1,
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "subjectId": 5054,
+          "periods": 1,
+          "start": "10:10",
+          "end": "11:10"
+        },
+        {
+          "subjectId": 5055,
+          "periods": 1,
+          "start": "15:00",
+          "end": "16:00"
+        },
+        {
+          "subjectId": 5056,
+          "periods": 2,
+          "start": "11:10",
+          "end": "13:10"
+        },
+        {
+          "subjectId": 5057,
+          "periods": 1,
+          "start": "09:10",
+          "end": "10:10"
+        }
+      ]
+    }
+  ],
+  "subjectSchedule": {
+    "5048": [
+      {
+        "date": "2026-07-06",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-07",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-08",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-10",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-13",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-14",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-15",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-17",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-18",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-20",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-21",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-22",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-24",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-25",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-27",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-28",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-29",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-31",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-01",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-03",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-04",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-05",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-07",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-08",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-11",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-12",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-14",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-17",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-18",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-19",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-21",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-22",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-24",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-25",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-26",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-28",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-29",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-08",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-09",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-11",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-12",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-15",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-16",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-18",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-19",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-21",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-22",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-23",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-25",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-26",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-28",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-29",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-30",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-02",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-03",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-05",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-06",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-07",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-09",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-10",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-12",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-13",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-14",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-23",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-24",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-26",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-27",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-28",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-30",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-31",
+        "periods": 1
+      },
+      {
+        "date": "2026-11-02",
+        "periods": 1
+      },
+      {
+        "date": "2026-11-03",
+        "periods": 1
+      },
+      {
+        "date": "2026-11-04",
+        "periods": 1
+      }
+    ],
+    "5049": [
+      {
+        "date": "2026-07-08",
+        "periods": 2
+      },
+      {
+        "date": "2026-07-09",
+        "periods": 2
+      },
+      {
+        "date": "2026-07-15",
+        "periods": 2
+      },
+      {
+        "date": "2026-07-16",
+        "periods": 2
+      },
+      {
+        "date": "2026-07-22",
+        "periods": 2
+      },
+      {
+        "date": "2026-07-23",
+        "periods": 2
+      },
+      {
+        "date": "2026-07-29",
+        "periods": 2
+      },
+      {
+        "date": "2026-07-30",
+        "periods": 2
+      },
+      {
+        "date": "2026-08-05",
+        "periods": 2
+      },
+      {
+        "date": "2026-08-06",
+        "periods": 2
+      },
+      {
+        "date": "2026-08-12",
+        "periods": 2
+      },
+      {
+        "date": "2026-08-13",
+        "periods": 2
+      },
+      {
+        "date": "2026-08-19",
+        "periods": 2
+      },
+      {
+        "date": "2026-08-20",
+        "periods": 2
+      },
+      {
+        "date": "2026-08-26",
+        "periods": 2
+      },
+      {
+        "date": "2026-08-27",
+        "periods": 2
+      },
+      {
+        "date": "2026-09-09",
+        "periods": 2
+      },
+      {
+        "date": "2026-09-10",
+        "periods": 2
+      },
+      {
+        "date": "2026-09-16",
+        "periods": 2
+      },
+      {
+        "date": "2026-09-17",
+        "periods": 2
+      },
+      {
+        "date": "2026-09-23",
+        "periods": 2
+      },
+      {
+        "date": "2026-09-24",
+        "periods": 2
+      },
+      {
+        "date": "2026-09-30",
+        "periods": 2
+      },
+      {
+        "date": "2026-10-01",
+        "periods": 2
+      },
+      {
+        "date": "2026-10-07",
+        "periods": 2
+      },
+      {
+        "date": "2026-10-08",
+        "periods": 2
+      },
+      {
+        "date": "2026-10-14",
+        "periods": 2
+      },
+      {
+        "date": "2026-10-15",
+        "periods": 2
+      },
+      {
+        "date": "2026-10-28",
+        "periods": 2
+      },
+      {
+        "date": "2026-10-29",
+        "periods": 2
+      },
+      {
+        "date": "2026-11-04",
+        "periods": 2
+      },
+      {
+        "date": "2026-11-05",
+        "periods": 2
+      }
+    ],
+    "5050": [
+      {
+        "date": "2026-07-06",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-07",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-08",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-10",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-13",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-14",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-15",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-17",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-18",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-20",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-21",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-22",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-24",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-25",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-27",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-28",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-29",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-31",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-01",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-03",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-04",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-05",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-07",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-08",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-11",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-12",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-14",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-17",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-18",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-19",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-21",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-22",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-24",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-25",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-26",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-28",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-29",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-08",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-09",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-11",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-12",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-15",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-16",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-18",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-19",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-21",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-22",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-23",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-25",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-26",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-28",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-29",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-30",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-02",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-03",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-05",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-06",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-07",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-09",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-10",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-12",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-13",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-14",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-23",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-24",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-26",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-27",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-28",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-30",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-31",
+        "periods": 1
+      },
+      {
+        "date": "2026-11-02",
+        "periods": 1
+      },
+      {
+        "date": "2026-11-03",
+        "periods": 1
+      },
+      {
+        "date": "2026-11-04",
+        "periods": 1
+      }
+    ],
+    "5051": [
+      {
+        "date": "2026-07-18",
+        "periods": 2
+      },
+      {
+        "date": "2026-07-25",
+        "periods": 2
+      },
+      {
+        "date": "2026-08-01",
+        "periods": 2
+      },
+      {
+        "date": "2026-08-08",
+        "periods": 2
+      },
+      {
+        "date": "2026-08-22",
+        "periods": 2
+      },
+      {
+        "date": "2026-08-29",
+        "periods": 2
+      },
+      {
+        "date": "2026-09-12",
+        "periods": 2
+      },
+      {
+        "date": "2026-09-19",
+        "periods": 2
+      },
+      {
+        "date": "2026-09-26",
+        "periods": 2
+      },
+      {
+        "date": "2026-10-03",
+        "periods": 2
+      },
+      {
+        "date": "2026-10-10",
+        "periods": 2
+      },
+      {
+        "date": "2026-10-24",
+        "periods": 2
+      },
+      {
+        "date": "2026-10-31",
+        "periods": 2
+      }
+    ],
+    "5052": [
+      {
+        "date": "2026-07-07",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-09",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-14",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-16",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-21",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-23",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-28",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-30",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-04",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-06",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-11",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-13",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-18",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-20",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-25",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-27",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-08",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-10",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-15",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-17",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-22",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-24",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-29",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-01",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-06",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-08",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-13",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-15",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-27",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-29",
+        "periods": 1
+      },
+      {
+        "date": "2026-11-03",
+        "periods": 1
+      },
+      {
+        "date": "2026-11-05",
+        "periods": 1
+      }
+    ],
+    "5053": [
+      {
+        "date": "2026-07-08",
+        "periods": 2
+      },
+      {
+        "date": "2026-07-10",
+        "periods": 2
+      },
+      {
+        "date": "2026-07-15",
+        "periods": 2
+      },
+      {
+        "date": "2026-07-17",
+        "periods": 2
+      },
+      {
+        "date": "2026-07-22",
+        "periods": 2
+      },
+      {
+        "date": "2026-07-24",
+        "periods": 2
+      },
+      {
+        "date": "2026-07-29",
+        "periods": 2
+      },
+      {
+        "date": "2026-07-31",
+        "periods": 2
+      },
+      {
+        "date": "2026-08-05",
+        "periods": 2
+      },
+      {
+        "date": "2026-08-07",
+        "periods": 2
+      },
+      {
+        "date": "2026-08-12",
+        "periods": 2
+      },
+      {
+        "date": "2026-08-14",
+        "periods": 2
+      },
+      {
+        "date": "2026-08-19",
+        "periods": 2
+      },
+      {
+        "date": "2026-08-21",
+        "periods": 2
+      },
+      {
+        "date": "2026-08-26",
+        "periods": 2
+      },
+      {
+        "date": "2026-08-28",
+        "periods": 2
+      },
+      {
+        "date": "2026-09-09",
+        "periods": 2
+      },
+      {
+        "date": "2026-09-11",
+        "periods": 2
+      },
+      {
+        "date": "2026-09-16",
+        "periods": 2
+      },
+      {
+        "date": "2026-09-18",
+        "periods": 2
+      },
+      {
+        "date": "2026-09-23",
+        "periods": 2
+      },
+      {
+        "date": "2026-09-25",
+        "periods": 2
+      },
+      {
+        "date": "2026-09-30",
+        "periods": 2
+      },
+      {
+        "date": "2026-10-02",
+        "periods": 2
+      },
+      {
+        "date": "2026-10-07",
+        "periods": 2
+      },
+      {
+        "date": "2026-10-09",
+        "periods": 2
+      },
+      {
+        "date": "2026-10-14",
+        "periods": 2
+      },
+      {
+        "date": "2026-10-23",
+        "periods": 2
+      },
+      {
+        "date": "2026-10-28",
+        "periods": 2
+      },
+      {
+        "date": "2026-10-30",
+        "periods": 2
+      },
+      {
+        "date": "2026-11-04",
+        "periods": 2
+      }
+    ],
+    "5054": [
+      {
+        "date": "2026-07-06",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-07",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-09",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-10",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-13",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-14",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-16",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-17",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-18",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-20",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-21",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-23",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-24",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-25",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-27",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-28",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-30",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-31",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-01",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-03",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-04",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-06",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-07",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-08",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-11",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-13",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-14",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-17",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-18",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-20",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-21",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-22",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-24",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-25",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-27",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-28",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-29",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-08",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-10",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-11",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-12",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-15",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-17",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-18",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-19",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-21",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-22",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-24",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-25",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-26",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-28",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-29",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-01",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-02",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-03",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-05",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-06",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-08",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-09",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-10",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-12",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-13",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-15",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-23",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-24",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-26",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-27",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-29",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-30",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-31",
+        "periods": 1
+      },
+      {
+        "date": "2026-11-02",
+        "periods": 1
+      },
+      {
+        "date": "2026-11-03",
+        "periods": 1
+      },
+      {
+        "date": "2026-11-05",
+        "periods": 1
+      }
+    ],
+    "5055": [
+      {
+        "date": "2026-07-06",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-07",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-08",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-09",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-13",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-14",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-15",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-16",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-18",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-20",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-21",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-22",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-23",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-25",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-27",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-28",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-29",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-30",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-01",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-03",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-04",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-05",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-06",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-08",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-11",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-12",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-13",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-17",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-18",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-19",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-20",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-22",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-24",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-25",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-26",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-27",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-29",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-08",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-09",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-10",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-12",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-15",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-16",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-17",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-19",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-21",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-22",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-23",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-24",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-26",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-28",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-29",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-30",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-01",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-03",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-05",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-06",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-07",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-08",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-10",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-12",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-13",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-14",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-15",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-24",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-26",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-27",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-28",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-29",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-31",
+        "periods": 1
+      },
+      {
+        "date": "2026-11-02",
+        "periods": 1
+      },
+      {
+        "date": "2026-11-03",
+        "periods": 1
+      },
+      {
+        "date": "2026-11-04",
+        "periods": 1
+      },
+      {
+        "date": "2026-11-05",
+        "periods": 1
+      }
+    ],
+    "5056": [
+      {
+        "date": "2026-07-09",
+        "periods": 2
+      },
+      {
+        "date": "2026-07-10",
+        "periods": 2
+      },
+      {
+        "date": "2026-07-16",
+        "periods": 2
+      },
+      {
+        "date": "2026-07-17",
+        "periods": 2
+      },
+      {
+        "date": "2026-07-23",
+        "periods": 2
+      },
+      {
+        "date": "2026-07-24",
+        "periods": 2
+      },
+      {
+        "date": "2026-07-30",
+        "periods": 2
+      },
+      {
+        "date": "2026-07-31",
+        "periods": 2
+      },
+      {
+        "date": "2026-08-06",
+        "periods": 2
+      },
+      {
+        "date": "2026-08-07",
+        "periods": 2
+      },
+      {
+        "date": "2026-08-13",
+        "periods": 2
+      },
+      {
+        "date": "2026-08-14",
+        "periods": 2
+      },
+      {
+        "date": "2026-08-20",
+        "periods": 2
+      },
+      {
+        "date": "2026-08-21",
+        "periods": 2
+      },
+      {
+        "date": "2026-08-27",
+        "periods": 2
+      },
+      {
+        "date": "2026-08-28",
+        "periods": 2
+      },
+      {
+        "date": "2026-09-10",
+        "periods": 2
+      },
+      {
+        "date": "2026-09-11",
+        "periods": 2
+      },
+      {
+        "date": "2026-09-17",
+        "periods": 2
+      },
+      {
+        "date": "2026-09-18",
+        "periods": 2
+      },
+      {
+        "date": "2026-09-24",
+        "periods": 2
+      },
+      {
+        "date": "2026-09-25",
+        "periods": 2
+      },
+      {
+        "date": "2026-10-01",
+        "periods": 2
+      },
+      {
+        "date": "2026-10-02",
+        "periods": 2
+      },
+      {
+        "date": "2026-10-08",
+        "periods": 2
+      },
+      {
+        "date": "2026-10-09",
+        "periods": 2
+      },
+      {
+        "date": "2026-10-15",
+        "periods": 2
+      },
+      {
+        "date": "2026-10-23",
+        "periods": 2
+      },
+      {
+        "date": "2026-10-29",
+        "periods": 2
+      },
+      {
+        "date": "2026-10-30",
+        "periods": 2
+      },
+      {
+        "date": "2026-11-05",
+        "periods": 2
+      }
+    ],
+    "5057": [
+      {
+        "date": "2026-07-06",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-07",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-08",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-09",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-10",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-13",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-14",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-15",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-16",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-17",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-20",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-21",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-22",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-23",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-24",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-27",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-28",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-29",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-30",
+        "periods": 1
+      },
+      {
+        "date": "2026-07-31",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-03",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-04",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-05",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-06",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-07",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-11",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-12",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-13",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-14",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-17",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-18",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-19",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-20",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-21",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-24",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-25",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-26",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-27",
+        "periods": 1
+      },
+      {
+        "date": "2026-08-28",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-08",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-09",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-10",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-11",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-15",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-16",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-17",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-18",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-21",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-22",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-23",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-24",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-25",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-28",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-29",
+        "periods": 1
+      },
+      {
+        "date": "2026-09-30",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-01",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-02",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-05",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-06",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-07",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-08",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-09",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-12",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-13",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-14",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-15",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-23",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-26",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-27",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-28",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-29",
+        "periods": 1
+      },
+      {
+        "date": "2026-10-30",
+        "periods": 1
+      },
+      {
+        "date": "2026-11-02",
+        "periods": 1
+      },
+      {
+        "date": "2026-11-03",
+        "periods": 1
+      },
+      {
+        "date": "2026-11-04",
+        "periods": 1
+      },
+      {
+        "date": "2026-11-05",
+        "periods": 1
+      }
+    ]
+  },
+  "rawCalendar": {
+    "2026-07-06": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      }
+    ],
+    "2026-07-07": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5052,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "15:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      }
+    ],
+    "2026-07-08": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5049,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5053,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      }
+    ],
+    "2026-07-09": [
+      {
+        "subjectId": 5049,
+        "periods": 2,
+        "start": "11:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5052,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "15:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5056,
+        "periods": 2,
+        "start": "11:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      }
+    ],
+    "2026-07-10": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5053,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5056,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      }
+    ],
+    "2026-07-13": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      }
+    ],
+    "2026-07-14": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5052,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "15:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      }
+    ],
+    "2026-07-15": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5049,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5053,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      }
+    ],
+    "2026-07-16": [
+      {
+        "subjectId": 5049,
+        "periods": 2,
+        "start": "11:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5052,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "15:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5056,
+        "periods": 2,
+        "start": "11:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      }
+    ],
+    "2026-07-17": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5053,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5056,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      }
+    ],
+    "2026-07-18": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5051,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      }
+    ],
+    "2026-07-20": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      }
+    ],
+    "2026-07-21": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5052,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "15:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      }
+    ],
+    "2026-07-22": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5049,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5053,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      }
+    ],
+    "2026-07-23": [
+      {
+        "subjectId": 5049,
+        "periods": 2,
+        "start": "11:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5052,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "15:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5056,
+        "periods": 2,
+        "start": "11:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      }
+    ],
+    "2026-07-24": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5053,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5056,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      }
+    ],
+    "2026-07-25": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5051,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      }
+    ],
+    "2026-07-27": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      }
+    ],
+    "2026-07-28": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5052,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "15:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      }
+    ],
+    "2026-07-29": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5049,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5053,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      }
+    ],
+    "2026-07-30": [
+      {
+        "subjectId": 5049,
+        "periods": 2,
+        "start": "11:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5052,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "15:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5056,
+        "periods": 2,
+        "start": "11:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      }
+    ],
+    "2026-07-31": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5053,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5056,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      }
+    ],
+    "2026-08-01": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5051,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      }
+    ],
+    "2026-08-03": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      }
+    ],
+    "2026-08-04": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5052,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "15:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      }
+    ],
+    "2026-08-05": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5049,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5053,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      }
+    ],
+    "2026-08-06": [
+      {
+        "subjectId": 5049,
+        "periods": 2,
+        "start": "11:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5052,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "15:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5056,
+        "periods": 2,
+        "start": "11:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      }
+    ],
+    "2026-08-07": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5053,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5056,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      }
+    ],
+    "2026-08-08": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5051,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      }
+    ],
+    "2026-08-11": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5052,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "15:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      }
+    ],
+    "2026-08-12": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5049,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5053,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      }
+    ],
+    "2026-08-13": [
+      {
+        "subjectId": 5049,
+        "periods": 2,
+        "start": "11:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5052,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "15:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5056,
+        "periods": 2,
+        "start": "11:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      }
+    ],
+    "2026-08-14": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5053,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5056,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      }
+    ],
+    "2026-08-17": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      }
+    ],
+    "2026-08-18": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5052,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "15:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      }
+    ],
+    "2026-08-19": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5049,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5053,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      }
+    ],
+    "2026-08-20": [
+      {
+        "subjectId": 5049,
+        "periods": 2,
+        "start": "11:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5052,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "15:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5056,
+        "periods": 2,
+        "start": "11:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      }
+    ],
+    "2026-08-21": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5053,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5056,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      }
+    ],
+    "2026-08-22": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5051,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      }
+    ],
+    "2026-08-24": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      }
+    ],
+    "2026-08-25": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5052,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "15:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      }
+    ],
+    "2026-08-26": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5049,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5053,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      }
+    ],
+    "2026-08-27": [
+      {
+        "subjectId": 5049,
+        "periods": 2,
+        "start": "11:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5052,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "15:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5056,
+        "periods": 2,
+        "start": "11:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      }
+    ],
+    "2026-08-28": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5053,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5056,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      }
+    ],
+    "2026-08-29": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5051,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      }
+    ],
+    "2026-09-08": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5052,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "15:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      }
+    ],
+    "2026-09-09": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5049,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5053,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      }
+    ],
+    "2026-09-10": [
+      {
+        "subjectId": 5049,
+        "periods": 2,
+        "start": "11:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5052,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "15:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5056,
+        "periods": 2,
+        "start": "11:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      }
+    ],
+    "2026-09-11": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5053,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5056,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      }
+    ],
+    "2026-09-12": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5051,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      }
+    ],
+    "2026-09-15": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5052,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "15:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      }
+    ],
+    "2026-09-16": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5049,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5053,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      }
+    ],
+    "2026-09-17": [
+      {
+        "subjectId": 5049,
+        "periods": 2,
+        "start": "11:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5052,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "15:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5056,
+        "periods": 2,
+        "start": "11:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      }
+    ],
+    "2026-09-18": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5053,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5056,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      }
+    ],
+    "2026-09-19": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5051,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      }
+    ],
+    "2026-09-21": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      }
+    ],
+    "2026-09-22": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5052,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "15:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      }
+    ],
+    "2026-09-23": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5049,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5053,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      }
+    ],
+    "2026-09-24": [
+      {
+        "subjectId": 5049,
+        "periods": 2,
+        "start": "11:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5052,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "15:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5056,
+        "periods": 2,
+        "start": "11:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      }
+    ],
+    "2026-09-25": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5053,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5056,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      }
+    ],
+    "2026-09-26": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5051,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      }
+    ],
+    "2026-09-28": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      }
+    ],
+    "2026-09-29": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5052,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "15:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      }
+    ],
+    "2026-09-30": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5049,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5053,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      }
+    ],
+    "2026-10-01": [
+      {
+        "subjectId": 5049,
+        "periods": 2,
+        "start": "11:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5052,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "15:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5056,
+        "periods": 2,
+        "start": "11:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      }
+    ],
+    "2026-10-02": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5053,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5056,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      }
+    ],
+    "2026-10-03": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5051,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      }
+    ],
+    "2026-10-05": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      }
+    ],
+    "2026-10-06": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5052,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "15:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      }
+    ],
+    "2026-10-07": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5049,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5053,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      }
+    ],
+    "2026-10-08": [
+      {
+        "subjectId": 5049,
+        "periods": 2,
+        "start": "11:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5052,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "15:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5056,
+        "periods": 2,
+        "start": "11:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      }
+    ],
+    "2026-10-09": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5053,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5056,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      }
+    ],
+    "2026-10-10": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5051,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      }
+    ],
+    "2026-10-12": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      }
+    ],
+    "2026-10-13": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5052,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "15:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      }
+    ],
+    "2026-10-14": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5049,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5053,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      }
+    ],
+    "2026-10-15": [
+      {
+        "subjectId": 5049,
+        "periods": 2,
+        "start": "11:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5052,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "15:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5056,
+        "periods": 2,
+        "start": "11:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      }
+    ],
+    "2026-10-23": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5053,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5056,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      }
+    ],
+    "2026-10-24": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5051,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      }
+    ],
+    "2026-10-26": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      }
+    ],
+    "2026-10-27": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5052,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "15:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      }
+    ],
+    "2026-10-28": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5049,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5053,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      }
+    ],
+    "2026-10-29": [
+      {
+        "subjectId": 5049,
+        "periods": 2,
+        "start": "11:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5052,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "15:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5056,
+        "periods": 2,
+        "start": "11:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      }
+    ],
+    "2026-10-30": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5053,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5056,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      }
+    ],
+    "2026-10-31": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5051,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      }
+    ],
+    "2026-11-02": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      }
+    ],
+    "2026-11-03": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5052,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "15:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      }
+    ],
+    "2026-11-04": [
+      {
+        "subjectId": 5048,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      },
+      {
+        "subjectId": 5049,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5050,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5053,
+        "periods": 2,
+        "start": "14:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "12:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "11:10",
+        "end": "12:10"
+      }
+    ],
+    "2026-11-05": [
+      {
+        "subjectId": 5049,
+        "periods": 2,
+        "start": "11:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5052,
+        "periods": 1,
+        "start": "14:00",
+        "end": "15:00"
+      },
+      {
+        "subjectId": 5054,
+        "periods": 1,
+        "start": "10:10",
+        "end": "11:10"
+      },
+      {
+        "subjectId": 5055,
+        "periods": 1,
+        "start": "15:00",
+        "end": "16:00"
+      },
+      {
+        "subjectId": 5056,
+        "periods": 2,
+        "start": "11:10",
+        "end": "13:10"
+      },
+      {
+        "subjectId": 5057,
+        "periods": 1,
+        "start": "09:10",
+        "end": "10:10"
+      }
+    ]
+  }
+}

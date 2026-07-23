@@ -1,0 +1,52 @@
+[
+  {
+    "id": 5051,
+    "name": "Computational Mathematics Lab",
+    "type": "Lab"
+  },
+  {
+    "id": 5052,
+    "name": "Design Thinking and Ideation",
+    "type": "Lab"
+  },
+  {
+    "id": 5050,
+    "name": "Fluid Mechanics and Hydraulic Machines",
+    "type": "Theory"
+  },
+  {
+    "id": 5049,
+    "name": "Fluid Mechanics and Hydraulic Machines Lab",
+    "type": "Lab"
+  },
+  {
+    "id": 5056,
+    "name": "Material Science and Mechanics of Solids Lab",
+    "type": "Lab"
+  },
+  {
+    "id": 5054,
+    "name": "Material Science and Metallurgy",
+    "type": "Theory"
+  },
+  {
+    "id": 5057,
+    "name": "Mechanics of Solids",
+    "type": "Theory"
+  },
+  {
+    "id": 5048,
+    "name": "Probability, Statistics and Complex Variables",
+    "type": "Theory"
+  },
+  {
+    "id": 5055,
+    "name": "Production Technology",
+    "type": "Theory"
+  },
+  {
+    "id": 5053,
+    "name": "Production Technology Lab",
+    "type": "Lab"
+  }
+]

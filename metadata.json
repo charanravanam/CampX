@@ -1,0 +1,6 @@
+{
+  "name": "AttendWise",
+  "description": "Mobile-first attendance planning tool for college students to manage safe skips, recovery plans, and class impacts.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
