@@ -366,11 +366,35 @@ export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
                 </div>
               </div>
 
+              {/* Calculated Difference Display */}
+              {(() => {
+                const diff = calculatedAttendwisePct - campXValue;
+                const formattedDiff = (diff >= 0 ? '+' : '') + diff.toFixed(2) + '%';
+                const isWithinExpectedRange = Math.abs(diff) <= 1.5;
+
+                return (
+                  <div className="bg-slate-50 rounded-xl p-2.5 border border-slate-200/90 flex items-center justify-between">
+                    <span className="text-xs font-semibold text-slate-600">
+                      Calculated Difference:
+                    </span>
+                    <div className="flex items-center gap-2">
+                      <span className={`text-xs font-black px-2 py-0.5 rounded-md ${
+                        isWithinExpectedRange
+                          ? 'bg-emerald-100 text-emerald-800 border border-emerald-200'
+                          : 'bg-amber-100 text-amber-800 border border-amber-200'
+                      }`}>
+                        {formattedDiff}
+                      </span>
+                    </div>
+                  </div>
+                );
+              })()}
+
               {/* Required Note Banner */}
               <div className="bg-amber-50 border border-amber-200/90 rounded-2xl p-3 flex items-start gap-2 text-amber-900">
                 <Info className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
                 <p className="text-[11px] leading-relaxed font-semibold">
-                  we calculate it from the core taking every decimal value so the attendance might vary by +or-0.5 to 1% thank you .
+                  Calculated with full decimal precision. Minor differences (±0.5–1%) are normal.
                 </p>
               </div>
 
