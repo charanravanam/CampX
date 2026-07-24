@@ -42,17 +42,25 @@ export const ForecastTab: React.FC<ForecastTabProps> = ({
   const [selectedDate, setSelectedDate] = useState<string>(currentDate);
   const [scenarioMode, setScenarioMode] = useState<'attend' | 'miss'>('attend');
 
+  // Sync selectedDate when currentDate changes
+  React.useEffect(() => {
+    setSelectedDate(currentDate);
+  }, [currentDate]);
+
   // Collect all unique dates in schedule sorted
   const allDates = useMemo(() => {
     if (rawCalendar && Object.keys(rawCalendar).length > 0) {
-      return Object.keys(rawCalendar).sort();
+      const keys = new Set(Object.keys(rawCalendar));
+      keys.add(currentDate);
+      return Array.from(keys).sort();
     }
     const set = new Set<string>();
     Object.values(scheduleMap).forEach((list: ScheduleSession[]) => {
       list.forEach((s) => set.add(s.date));
     });
+    set.add(currentDate);
     return Array.from(set).sort();
-  }, [scheduleMap, rawCalendar]);
+  }, [scheduleMap, rawCalendar, currentDate]);
 
   // Current selected day index
   const currentIndex = allDates.indexOf(selectedDate);

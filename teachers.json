@@ -1,0 +1,76 @@
+[
+  {
+    "subjectCode": "25BS0MA05",
+    "subjectName": "Probability, Statistics and Complex Variables",
+    "teachers": [
+      "Dr. K. Veera  Reddy"
+    ]
+  },
+  {
+    "subjectCode": "25BS0MA07",
+    "subjectName": "Computational Mathematics Lab",
+    "teachers": [
+      "Dr. K. Veera  Reddy"
+    ]
+  },
+  {
+    "subjectCode": "25PC0ME03",
+    "subjectName": "Mechanics of Solids",
+    "teachers": [
+      "Vanga Gopal"
+    ]
+  },
+  {
+    "subjectCode": "25PC0ME04",
+    "subjectName": "Material Science and Metallurgy",
+    "teachers": [
+      "Anjaiah Madarapu",
+      "D Prasuna Lilly Florence"
+    ]
+  },
+  {
+    "subjectCode": "25PC0ME05",
+    "subjectName": "Production Technology",
+    "teachers": [
+      "Prakash Moparthi"
+    ]
+  },
+  {
+    "subjectCode": "25PC0ME06",
+    "subjectName": "Fluid Mechanics and Hydraulic Machines",
+    "teachers": [
+      "Maimiuna Siddiqui"
+    ]
+  },
+  {
+    "subjectCode": "25PC0ME07",
+    "subjectName": "Production Technology Lab",
+    "teachers": [
+      "Dr. Ananda Mohan  Vemula",
+      "Prakash Moparthi"
+    ]
+  },
+  {
+    "subjectCode": "25PC0ME08",
+    "subjectName": "Material Science and Mechanics of Solids Lab",
+    "teachers": [
+      "PRAVEEN CHITYALA",
+      "Vanga Gopal"
+    ]
+  },
+  {
+    "subjectCode": "25PC0ME09",
+    "subjectName": "Fluid Mechanics and Hydraulic Machines Lab",
+    "teachers": [
+      "Cheruku Chandrika",
+      "Maimiuna Siddiqui"
+    ]
+  },
+  {
+    "subjectCode": "25SD0ME01",
+    "subjectName": "Design Thinking and Ideation",
+    "teachers": [
+      "JALLU KISHORE"
+    ]
+  }
+]

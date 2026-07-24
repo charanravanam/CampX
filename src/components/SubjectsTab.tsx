@@ -121,7 +121,7 @@ export const SubjectsTab: React.FC<SubjectsTabProps> = ({
                           : 'bg-blue-50 text-blue-700 border border-blue-200'
                       }`}
                     >
-                      {sm.subject.type === 'lab' ? 'Lab (2 periods)' : 'Lecture'}
+                      {sm.subject.type === 'lab' ? 'Lab' : 'Lecture'}
                     </span>
                   </div>
 
@@ -199,13 +199,41 @@ interface SubjectDetailModalProps {
   onUpdateState?: (subjectId: string, attended: number, total: number) => void;
 }
 
+const formatNextSessionDate = (dateStr: string) => {
+  if (!dateStr) return '';
+  const parts = dateStr.split('-');
+  if (parts.length !== 3) return dateStr;
+  const [y, m, d] = parts.map(Number);
+  const dateObj = new Date(y, m - 1, d);
+  const formatted = dateObj.toLocaleDateString('en-US', {
+    weekday: 'short',
+    month: 'short',
+    day: 'numeric',
+  });
+
+  const today = new Date();
+  const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+
+  if (dateStr === todayStr) {
+    return `Today (${formatted})`;
+  }
+
+  const tomorrow = new Date(today);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const tomorrowStr = `${tomorrow.getFullYear()}-${String(tomorrow.getMonth() + 1).padStart(2, '0')}-${String(tomorrow.getDate()).padStart(2, '0')}`;
+  if (dateStr === tomorrowStr) {
+    return `Tomorrow (${formatted})`;
+  }
+
+  return formatted;
+};
+
 const SubjectDetailModal: React.FC<SubjectDetailModalProps> = ({
   metrics,
   threshold,
   onClose,
   onUpdateState,
 }) => {
-  const [showFormula, setShowFormula] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [editAttended, setEditAttended] = useState(metrics.attended);
   const [editTotal, setEditTotal] = useState(metrics.total);
@@ -236,7 +264,7 @@ const SubjectDetailModal: React.FC<SubjectDetailModalProps> = ({
                 {metrics.subject.code}
               </span>
               <span className="text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider bg-emerald-50 text-emerald-700 border border-emerald-200">
-                {metrics.subject.type === 'lab' ? 'Lab (2 periods)' : 'Lecture'}
+                {metrics.subject.type === 'lab' ? 'Lab' : 'Lecture'}
               </span>
             </div>
             <h2 className="text-xl font-extrabold text-slate-900">{metrics.subject.name}</h2>
@@ -388,7 +416,9 @@ const SubjectDetailModal: React.FC<SubjectDetailModalProps> = ({
           <div className="bg-slate-50/80 rounded-2xl p-4 border border-slate-200 my-4 space-y-2">
             <div className="text-xs font-bold text-slate-800 flex items-center justify-between">
               <span>Next Scheduled Class</span>
-              <span className="text-[11px] text-emerald-700 font-semibold">{metrics.nextSession.date}</span>
+              <span className="text-[11px] text-emerald-700 font-semibold">
+                {formatNextSessionDate(metrics.nextSession.date || '')}
+              </span>
             </div>
             <div className="flex items-center justify-between text-xs text-slate-500">
               <span>{metrics.nextSession.time || metrics.subject.defaultTime}</span>
@@ -402,53 +432,6 @@ const SubjectDetailModal: React.FC<SubjectDetailModalProps> = ({
             </div>
           </div>
         )}
-
-        {/* EXPANDABLE "WHY THIS NUMBER?" */}
-        <div className="pt-2">
-          <button
-            onClick={() => setShowFormula(!showFormula)}
-            className="w-full flex items-center justify-between text-xs text-slate-500 hover:text-slate-800 transition py-2"
-          >
-            <span className="flex items-center gap-1.5 font-bold">
-              <HelpCircle className="w-4 h-4 text-emerald-600" />
-              <span>Why this number? Formula breakdown</span>
-            </span>
-            <ChevronDown
-              className={`w-4 h-4 transition-transform duration-200 ${
-                showFormula ? 'rotate-180' : ''
-              }`}
-            />
-          </button>
-
-          {showFormula && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              className="text-xs text-slate-700 bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-2 mt-2 font-mono"
-            >
-              <div>
-                <span className="text-slate-400 block">Current Rate:</span>
-                <span className="text-emerald-700 font-bold">
-                  {metrics.attended} / {metrics.total} = {metrics.currentPercentage.toFixed(2)}%
-                </span>
-              </div>
-              <div>
-                <span className="text-slate-400 block">Safe To Miss Formula:</span>
-                <span className="text-slate-700">
-                  floor(({metrics.attended} + {metrics.remainingPeriods}) - {threshold} × ({metrics.total} + {metrics.remainingPeriods})) ={' '}
-                  <strong className="text-emerald-700">{metrics.safeToMiss}</strong>
-                </span>
-              </div>
-              <div>
-                <span className="text-slate-400 block">Recovery Formula:</span>
-                <span className="text-slate-700">
-                  ceil(({threshold} × {metrics.total} - {metrics.attended}) / (1 - {threshold})) ={' '}
-                  <strong className="text-rose-600">{metrics.recoveryPeriodsNeeded}</strong>
-                </span>
-              </div>
-            </motion.div>
-          )}
-        </div>
       </motion.div>
     </div>
   );

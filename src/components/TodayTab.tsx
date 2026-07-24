@@ -8,9 +8,7 @@ import {
   MapPin,
   CheckCircle2,
   XCircle,
-  HelpCircle,
   ChevronRight,
-  ChevronDown,
   Check,
   X,
   Calendar,
@@ -30,8 +28,7 @@ interface TodayTabProps {
   onMarkTodaySession: (
     subjectId: string,
     sessionKey: string,
-    status: 'attended' | 'missed' | 'unmarked',
-    periods: number
+    status: 'attended' | 'missed' | 'unmarked'
   ) => void;
   onNavigateToSubject?: (subjectId: string) => void;
   onNavigateToForecast?: () => void;
@@ -48,7 +45,6 @@ export const TodayTab: React.FC<TodayTabProps> = ({
   onNavigateToSubject,
   onNavigateToForecast,
 }) => {
-  const [showFormulaInfo, setShowFormulaInfo] = useState(false);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [refreshToast, setRefreshToast] = useState(false);
 
@@ -195,40 +191,6 @@ export const TodayTab: React.FC<TodayTabProps> = ({
             </div>
           </div>
         </div>
-
-        {/* Expandable "How calculation works" */}
-        <div className="mt-3 pt-2 border-t border-slate-100">
-          <button
-            onClick={() => setShowFormulaInfo(!showFormulaInfo)}
-            className="w-full flex items-center justify-between text-xs text-slate-500 hover:text-slate-800 transition py-0.5"
-          >
-            <span className="flex items-center gap-1.5 font-semibold text-[11px]">
-              <HelpCircle className="w-3.5 h-3.5 text-emerald-600" />
-              <span>How safe skips & attendance are calculated</span>
-            </span>
-            <ChevronDown
-              className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                showFormulaInfo ? 'rotate-180' : ''
-              }`}
-            />
-          </button>
-
-          {showFormulaInfo && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              className="mt-2 text-xs text-slate-600 space-y-2 bg-slate-50 rounded-xl p-2.5 border border-slate-200/60"
-            >
-              <p className="font-mono text-[10px] text-emerald-900 bg-emerald-50 p-2 rounded-lg border border-emerald-100">
-                Safe Skips = floor((Attended - 75% × Conducted) / 75%)
-              </p>
-              <p className="text-[11px] text-slate-500 leading-relaxed">
-                Safe skips reflect your <strong>current buffer right now</strong>. If you skip a
-                class today, your buffer updates immediately.
-              </p>
-            </motion.div>
-          )}
-        </div>
       </motion.div>
 
       {/* TODAY'S CHRONOLOGICAL SCHEDULE SECTION */}
@@ -277,9 +239,8 @@ export const TodayTab: React.FC<TodayTabProps> = ({
               const sessionKey = `${currentDate}_${ts.subject.id}_${ts.session.start || idx}`;
               const currentMark = todayMarks[sessionKey];
 
-              // High attendance or buffer determining Must Attend vs Skippable
-              const isMustAttend =
-                !sm || sm.currentPercentage < threshold * 100 || sm.safeToMiss === 0 || !ts.isSafeToMiss;
+              // Evaluated by semester-wide equation considering total semester classes, attended till date, future implications, and lab priority
+              const isMustAttend = !ts.isSafeToMiss;
 
               return (
                 <motion.div
@@ -334,7 +295,7 @@ export const TodayTab: React.FC<TodayTabProps> = ({
                               : 'bg-blue-50 text-blue-700 border border-blue-200'
                           }`}
                         >
-                          {ts.subject.type === 'lab' ? `${ts.periods} Periods Lab` : '1 Period Lecture'}
+                          {ts.periods} Period{ts.periods > 1 ? 's' : ''} {ts.subject.type === 'lab' ? 'Lab' : 'Lecture'}
                         </span>
                       </div>
 
@@ -349,6 +310,19 @@ export const TodayTab: React.FC<TodayTabProps> = ({
                         <MapPin className="w-3 h-3 text-slate-400 shrink-0" />
                         <span>{ts.room}</span>
                       </div>
+
+                      {ts.skippableReason && (
+                        <div
+                          className={`mt-2 text-[10px] font-semibold px-2.5 py-1 rounded-lg flex items-start gap-1.5 leading-snug ${
+                            isMustAttend
+                              ? 'bg-rose-50/90 text-rose-900 border border-rose-200/80'
+                              : 'bg-emerald-50/90 text-emerald-900 border border-emerald-200/80'
+                          }`}
+                        >
+                          <Sparkles className="w-3 h-3 shrink-0 mt-0.5" />
+                          <span>{ts.skippableReason}</span>
+                        </div>
+                      )}
                     </div>
 
                     {/* SUBJECT PERCENTAGE RATE */}
@@ -379,8 +353,7 @@ export const TodayTab: React.FC<TodayTabProps> = ({
                           onMarkTodaySession(
                             ts.subject.id,
                             sessionKey,
-                            currentMark === 'attended' ? 'unmarked' : 'attended',
-                            ts.periods
+                            currentMark === 'attended' ? 'unmarked' : 'attended'
                           )
                         }
                         className={`py-1.5 px-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1 ${
@@ -390,7 +363,7 @@ export const TodayTab: React.FC<TodayTabProps> = ({
                         }`}
                       >
                         <Check className="w-3.5 h-3.5" />
-                        <span>{currentMark === 'attended' ? 'Attended' : 'Attended'}</span>
+                        <span>Attended</span>
                       </button>
 
                       <button
@@ -399,8 +372,7 @@ export const TodayTab: React.FC<TodayTabProps> = ({
                           onMarkTodaySession(
                             ts.subject.id,
                             sessionKey,
-                            currentMark === 'missed' ? 'unmarked' : 'missed',
-                            ts.periods
+                            currentMark === 'missed' ? 'unmarked' : 'missed'
                           )
                         }
                         className={`py-1.5 px-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1 ${
@@ -410,7 +382,7 @@ export const TodayTab: React.FC<TodayTabProps> = ({
                         }`}
                       >
                         <X className="w-3.5 h-3.5" />
-                        <span>{currentMark === 'missed' ? 'Missed' : 'Missed'}</span>
+                        <span>Missed</span>
                       </button>
                     </div>
                   </div>

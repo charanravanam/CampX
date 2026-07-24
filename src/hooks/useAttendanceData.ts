@@ -113,7 +113,33 @@ export function useAttendanceData() {
     }
   }, [todayMarks]);
 
-  const currentDate = data.metadata.currentDate || '2026-07-23';
+  const currentDate = useMemo(() => {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const todayStr = `${year}-${month}-${day}`;
+
+    // Check if todayStr exists in rawCalendar or subjectSchedule
+    if (data.rawCalendar && data.rawCalendar[todayStr]) {
+      return todayStr;
+    }
+    const hasSchedule = Object.values(data.subjectSchedule || {}).some((list) =>
+      list.some((s) => s.date === todayStr)
+    );
+    if (hasSchedule) {
+      return todayStr;
+    }
+
+    // Check if todayStr falls within semester range
+    const startDate = data.metadata.startDate || '2026-07-06';
+    const endDate = data.metadata.endDate || '2026-11-05';
+    if (todayStr >= startDate && todayStr <= endDate) {
+      return todayStr;
+    }
+
+    return data.metadata.currentDate || '2026-07-23';
+  }, [data]);
 
   // Compute metrics per subject
   const subjectMetricsMap = useMemo(() => {
@@ -125,10 +151,10 @@ export function useAttendanceData() {
         total: subj.defaultTotal ?? 12,
       };
       const schedule = data.subjectSchedule[subj.id] || [];
-      map[subj.id] = calculateSubjectMetrics(subj, state, schedule, currentDate, threshold);
+      map[subj.id] = calculateSubjectMetrics(subj, state, schedule, currentDate, threshold, data.rawCalendar);
     });
     return map;
-  }, [data.subjects, data.subjectSchedule, studentStates, currentDate, threshold]);
+  }, [data.subjects, data.subjectSchedule, studentStates, currentDate, threshold, data.rawCalendar]);
 
   const subjectMetricsList = useMemo(() => {
     return data.subjects.map((s) => subjectMetricsMap[s.id]);
@@ -163,7 +189,7 @@ export function useAttendanceData() {
   }, []);
 
   const markTodaySession = useCallback(
-    (subjectId: string, sessionKey: string, newStatus: 'attended' | 'missed' | 'unmarked', periods: number) => {
+    (subjectId: string, sessionKey: string, newStatus: 'attended' | 'missed' | 'unmarked') => {
       setTodayMarks((prevMarks) => {
         const oldStatus = prevMarks[sessionKey];
         if (oldStatus === newStatus) return prevMarks;
@@ -176,24 +202,29 @@ export function useAttendanceData() {
         }
 
         setStudentStates((prevStates) => {
-          const current = prevStates[subjectId] || { subjectId, attended: 10, total: 12 };
+          const defaultSubj = data.subjects.find((s) => s.id === subjectId);
+          const current = prevStates[subjectId] || {
+            subjectId,
+            attended: defaultSubj?.defaultAttended ?? 10,
+            total: defaultSubj?.defaultTotal ?? 12,
+          };
           let newAttended = current.attended;
           let newTotal = current.total;
 
-          // Revert old mark
+          // Revert old mark (always fixed 1)
           if (oldStatus === 'attended') {
-            newAttended = Math.max(0, newAttended - periods);
-            newTotal = Math.max(newAttended, newTotal - periods);
+            newAttended = Math.max(0, newAttended - 1);
+            newTotal = Math.max(newAttended, newTotal - 1);
           } else if (oldStatus === 'missed') {
-            newTotal = Math.max(newAttended, newTotal - periods);
+            newTotal = Math.max(newAttended, newTotal - 1);
           }
 
-          // Apply new mark
+          // Apply new mark (always fixed 1)
           if (newStatus === 'attended') {
-            newAttended = newAttended + periods;
-            newTotal = newTotal + periods;
+            newAttended = newAttended + 1;
+            newTotal = newTotal + 1;
           } else if (newStatus === 'missed') {
-            newTotal = newTotal + periods;
+            newTotal = newTotal + 1;
           }
 
           return {
@@ -209,7 +240,7 @@ export function useAttendanceData() {
         return nextMarks;
       });
     },
-    []
+    [data.subjects]
   );
 
   const batchUpdateSubjectStates = useCallback((states: StudentSubjectState[]) => {

@@ -11,10 +11,10 @@
   "subjects": [
     {
       "id": "5048",
-      "code": "MA301",
+      "code": "25BS0MA05",
       "name": "Probability, Statistics and Complex Variables",
       "type": "lecture",
-      "teacher": "Dr. R. K. Sharma",
+      "teacher": "Dr. K. Veera  Reddy",
       "room": "LH-201",
       "defaultTime": "09:10 AM - 10:10 AM",
       "defaultAttended": 10,
@@ -22,10 +22,10 @@
     },
     {
       "id": "5049",
-      "code": "ME301L",
+      "code": "25PC0ME09",
       "name": "Fluid Mechanics and Hydraulic Machines Lab",
       "type": "lab",
-      "teacher": "Prof. S. N. Roy",
+      "teacher": "Cheruku Chandrika • Maimiuna Siddiqui",
       "room": "FM Lab",
       "defaultTime": "11:10 AM - 01:10 PM",
       "defaultAttended": 10,
@@ -33,10 +33,10 @@
     },
     {
       "id": "5050",
-      "code": "ME301",
+      "code": "25PC0ME06",
       "name": "Fluid Mechanics and Hydraulic Machines",
       "type": "lecture",
-      "teacher": "Dr. P. K. Mishra",
+      "teacher": "Maimiuna Siddiqui",
       "room": "LH-201",
       "defaultTime": "09:10 AM - 10:10 AM",
       "defaultAttended": 10,
@@ -44,10 +44,10 @@
     },
     {
       "id": "5051",
-      "code": "MA301L",
+      "code": "25BS0MA07",
       "name": "Computational Mathematics Lab",
       "type": "lab",
-      "teacher": "Dr. A. K. Gupta",
+      "teacher": "Dr. K. Veera  Reddy",
       "room": "Comp Lab 1",
       "defaultTime": "11:10 AM - 01:10 PM",
       "defaultAttended": 0,
@@ -55,10 +55,10 @@
     },
     {
       "id": "5052",
-      "code": "ME302L",
+      "code": "25SD0ME01",
       "name": "Design Thinking and Ideation",
       "type": "lab",
-      "teacher": "Prof. M. S. Verma",
+      "teacher": "JALLU KISHORE",
       "room": "Design Studio",
       "defaultTime": "11:10 AM - 01:10 PM",
       "defaultAttended": 4,
@@ -66,10 +66,10 @@
     },
     {
       "id": "5053",
-      "code": "ME303L",
+      "code": "25PC0ME07",
       "name": "Production Technology Lab",
       "type": "lab",
-      "teacher": "Prof. V. K. Singh",
+      "teacher": "Dr. Ananda Mohan  Vemula • Prakash Moparthi",
       "room": "Prod Lab",
       "defaultTime": "11:10 AM - 01:10 PM",
       "defaultAttended": 8,
@@ -77,10 +77,10 @@
     },
     {
       "id": "5054",
-      "code": "ME304",
+      "code": "25PC0ME04",
       "name": "Material Science and Metallurgy",
       "type": "lecture",
-      "teacher": "Dr. H. C. Prasad",
+      "teacher": "Anjaiah Madarapu • D Prasuna Lilly Florence",
       "room": "LH-202",
       "defaultTime": "09:10 AM - 10:10 AM",
       "defaultAttended": 10,
@@ -88,10 +88,10 @@
     },
     {
       "id": "5055",
-      "code": "ME303",
+      "code": "25PC0ME05",
       "name": "Production Technology",
       "type": "lecture",
-      "teacher": "Dr. S. K. Das",
+      "teacher": "Prakash Moparthi",
       "room": "LH-202",
       "defaultTime": "09:10 AM - 10:10 AM",
       "defaultAttended": 11,
@@ -99,10 +99,10 @@
     },
     {
       "id": "5056",
-      "code": "ME304L",
+      "code": "25PC0ME08",
       "name": "Material Science and Mechanics of Solids Lab",
       "type": "lab",
-      "teacher": "Prof. R. N. Mukherjee",
+      "teacher": "PRAVEEN CHITYALA • Vanga Gopal",
       "room": "MOS Lab",
       "defaultTime": "11:10 AM - 01:10 PM",
       "defaultAttended": 8,
@@ -110,10 +110,10 @@
     },
     {
       "id": "5057",
-      "code": "ME305",
+      "code": "25PC0ME03",
       "name": "Mechanics of Solids",
       "type": "lecture",
-      "teacher": "Dr. B. C. Ray",
+      "teacher": "Vanga Gopal",
       "room": "LH-201",
       "defaultTime": "09:10 AM - 10:10 AM",
       "defaultAttended": 12,
@@ -4569,131 +4569,131 @@
     "5052": [
       {
         "date": "2026-07-07",
-        "periods": 1
+        "periods": 2
       },
       {
         "date": "2026-07-09",
-        "periods": 1
+        "periods": 2
       },
       {
         "date": "2026-07-14",
-        "periods": 1
+        "periods": 2
       },
       {
         "date": "2026-07-16",
-        "periods": 1
+        "periods": 2
       },
       {
         "date": "2026-07-21",
-        "periods": 1
+        "periods": 2
       },
       {
         "date": "2026-07-23",
-        "periods": 1
+        "periods": 2
       },
       {
         "date": "2026-07-28",
-        "periods": 1
+        "periods": 2
       },
       {
         "date": "2026-07-30",
-        "periods": 1
+        "periods": 2
       },
       {
         "date": "2026-08-04",
-        "periods": 1
+        "periods": 2
       },
       {
         "date": "2026-08-06",
-        "periods": 1
+        "periods": 2
       },
       {
         "date": "2026-08-11",
-        "periods": 1
+        "periods": 2
       },
       {
         "date": "2026-08-13",
-        "periods": 1
+        "periods": 2
       },
       {
         "date": "2026-08-18",
-        "periods": 1
+        "periods": 2
       },
       {
         "date": "2026-08-20",
-        "periods": 1
+        "periods": 2
       },
       {
         "date": "2026-08-25",
-        "periods": 1
+        "periods": 2
       },
       {
         "date": "2026-08-27",
-        "periods": 1
+        "periods": 2
       },
       {
         "date": "2026-09-08",
-        "periods": 1
+        "periods": 2
       },
       {
         "date": "2026-09-10",
-        "periods": 1
+        "periods": 2
       },
       {
         "date": "2026-09-15",
-        "periods": 1
+        "periods": 2
       },
       {
         "date": "2026-09-17",
-        "periods": 1
+        "periods": 2
       },
       {
         "date": "2026-09-22",
-        "periods": 1
+        "periods": 2
       },
       {
         "date": "2026-09-24",
-        "periods": 1
+        "periods": 2
       },
       {
         "date": "2026-09-29",
-        "periods": 1
+        "periods": 2
       },
       {
         "date": "2026-10-01",
-        "periods": 1
+        "periods": 2
       },
       {
         "date": "2026-10-06",
-        "periods": 1
+        "periods": 2
       },
       {
         "date": "2026-10-08",
-        "periods": 1
+        "periods": 2
       },
       {
         "date": "2026-10-13",
-        "periods": 1
+        "periods": 2
       },
       {
         "date": "2026-10-15",
-        "periods": 1
+        "periods": 2
       },
       {
         "date": "2026-10-27",
-        "periods": 1
+        "periods": 2
       },
       {
         "date": "2026-10-29",
-        "periods": 1
+        "periods": 2
       },
       {
         "date": "2026-11-03",
-        "periods": 1
+        "periods": 2
       },
       {
         "date": "2026-11-05",
-        "periods": 1
+        "periods": 2
       }
     ],
     "5053": [

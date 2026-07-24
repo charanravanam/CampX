@@ -228,7 +228,7 @@ export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
                             : 'bg-blue-50 text-blue-700 border border-blue-200'
                         }`}
                       >
-                        {subj.type === 'lab' ? 'Lab (2 periods)' : 'Lecture (1 period)'}
+                        {subj.type === 'lab' ? 'Lab' : 'Lecture'}
                       </span>
                     </div>
                     <h3 className="text-xs sm:text-sm font-bold text-slate-900 leading-tight">

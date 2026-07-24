@@ -71,6 +71,18 @@ export function calculateMaxAchievable(
   return Math.min(100, Math.max(0, ((attended + remainingPeriods) / futureTotal) * 100));
 }
 
+function formatTimeString(time24: string): string {
+  if (!time24 || !time24.includes(':')) return time24;
+  const [hStr, mStr] = time24.split(':');
+  let h = parseInt(hStr, 10);
+  const m = mStr;
+  const ampm = h >= 12 ? 'PM' : 'AM';
+  h = h % 12;
+  if (h === 0) h = 12;
+  const formattedH = String(h).padStart(2, '0');
+  return `${formattedH}:${m} ${ampm}`;
+}
+
 /**
  * Calculates metrics for a single subject
  */
@@ -79,15 +91,21 @@ export function calculateSubjectMetrics(
   state: StudentSubjectState,
   schedule: ScheduleSession[] = [],
   currentDate: string, // YYYY-MM-DD
-  threshold: number = 0.75
+  threshold: number = 0.75,
+  rawCalendar?: Record<string, any[]>
 ): SubjectMetrics {
   const attended = Math.max(0, state.attended);
   const total = Math.max(attended, state.total);
   const currentPercentage = calculateCurrentAttendance(attended, total);
 
-  // Remaining periods are those on or after currentDate in the schedule
+  // Total classes scheduled in the timetable for this subject across the whole semester
+  const totalClassesInSchedule = schedule.reduce((acc, s) => acc + (typeof s.periods === 'number' && s.periods > 0 ? s.periods : 1), 0);
+
+  // Remaining periods are total classes in schedule minus completed classes
   const futureSessions = schedule.filter((s) => s.date >= currentDate);
-  const remainingPeriods = futureSessions.reduce((acc, s) => acc + s.periods, 0);
+  const remainingPeriods = totalClassesInSchedule > 0
+    ? Math.max(0, totalClassesInSchedule - total)
+    : futureSessions.reduce((acc, s) => acc + (typeof s.periods === 'number' && s.periods > 0 ? s.periods : 1), 0);
 
   const safeToMiss = calculateSafeToMiss(attended, total, remainingPeriods, threshold);
   const recoveryPeriodsNeeded = calculateRecovery(attended, total, threshold);
@@ -105,8 +123,21 @@ export function calculateSubjectMetrics(
     status = 'safe';
   }
 
-  // Next session
-  const nextSession = futureSessions.length > 0 ? futureSessions[0] : undefined;
+  // Next session dynamically starting from currentDate
+  let nextSession = futureSessions.length > 0 ? { ...futureSessions[0] } : undefined;
+
+  // Enrich nextSession time if rawCalendar is provided
+  if (nextSession && nextSession.date && rawCalendar && rawCalendar[nextSession.date]) {
+    const dayList = rawCalendar[nextSession.date];
+    const match = dayList.find(
+      (ds: any) => String(ds.subjectId) === String(subject.id)
+    );
+    if (match && match.start && match.end) {
+      nextSession.start = match.start;
+      nextSession.end = match.end;
+      nextSession.time = `${formatTimeString(match.start)} - ${formatTimeString(match.end)}`;
+    }
+  }
 
   // Impact if next session is missed
   let missImpactPercentage = currentPercentage;
@@ -183,6 +214,112 @@ export function calculateOverallAttendance(
 }
 
 /**
+ * Evaluates whether a session is "Skippable" or "Must Attend" based on:
+ * 1. Total classes in the whole semester & classes attended till date across the semester
+ * 2. Possible implications on future attendance (required future attendance rate to reach threshold)
+ * 3. Class Type Priority: Labs have far fewer total sessions in the semester (~12-15 labs vs ~45-60 lectures),
+ *    so missing a lab has a higher weight and severity, making labs higher priority.
+ */
+export function evaluateSemesterSkippability(
+  subject: SubjectInfo,
+  periodsInSession: number,
+  subjectsMetricsMap: Record<string, SubjectMetrics>,
+  scheduleMap: Record<string, ScheduleSession[]>,
+  threshold: number = 0.75
+): { isSafeToMiss: boolean; reason: string } {
+  const metricsList = Object.values(subjectsMetricsMap);
+  const overall = calculateOverallAttendance(metricsList, threshold);
+
+  // 1. Semester Totals Across All Subjects
+  let totalSemesterPeriodsAll = 0;
+  if (scheduleMap && Object.keys(scheduleMap).length > 0) {
+    Object.keys(scheduleMap).forEach((subjId) => {
+      const list = scheduleMap[subjId] || [];
+      const sumPeriods = list.reduce((acc, sess) => acc + sess.periods, 0);
+      totalSemesterPeriodsAll += sumPeriods > 0 ? sumPeriods : 45;
+    });
+  }
+
+  if (totalSemesterPeriodsAll < overall.totalPeriods) {
+    totalSemesterPeriodsAll = Math.max(overall.totalPeriods * 2, 300);
+  }
+
+  const attendedTillDate = overall.totalAttended;
+  const conductedTillDate = overall.totalPeriods;
+  const remainingSemesterPeriods = Math.max(0, totalSemesterPeriodsAll - conductedTillDate);
+
+  // 2. Class Type Priority (Lab vs Lecture)
+  // Labs have fewer total classes in a semester, so missing a lab consumes a larger fraction
+  // of total lab classes and is significantly harder to recover from.
+  const isLab = subject.type === 'lab';
+  const typeWeight = isLab ? 2.2 : 1.0;
+
+  // 3. Current Overall Buffer Check
+  // Safe skips in overall periods = floor((Attended - threshold * Conducted) / threshold)
+  const overallSafeBuffer = Math.floor(
+    (attendedTillDate - threshold * conductedTillDate) / threshold
+  );
+
+  // Effective required buffer for this session type
+  const requiredBufferForSession = Math.ceil(periodsInSession * typeWeight);
+
+  // 4. Future Attendance Trajectory Implication
+  // If student misses this class today:
+  const newConductedIfMissed = conductedTillDate + periodsInSession;
+  const newRemainingIfMissed = Math.max(0, remainingSemesterPeriods - periodsInSession);
+
+  // Total target attended periods needed by end of semester to stay >= threshold%
+  const targetEndAttended = Math.ceil(threshold * totalSemesterPeriodsAll);
+  const remainingAttendedNeeded = Math.max(0, targetEndAttended - attendedTillDate);
+
+  // Required future attendance percentage for all remaining semester classes
+  const requiredFuturePctIfMissed =
+    newRemainingIfMissed > 0
+      ? (remainingAttendedNeeded / newRemainingIfMissed) * 100
+      : 100;
+
+  // Decision Logic:
+  // Cannot skip if:
+  // A. Overall current percentage is below threshold
+  if (overall.currentPercentage < threshold * 100) {
+    return {
+      isSafeToMiss: false,
+      reason: `Overall attendance (${overall.currentPercentage.toFixed(1)}%) is below ${(threshold * 100).toFixed(0)}% requirement.`,
+    };
+  }
+
+  // B. Overall safe buffer is smaller than the weighted requirement for this class type
+  if (overallSafeBuffer < requiredBufferForSession) {
+    if (isLab) {
+      return {
+        isSafeToMiss: false,
+        reason: `Lab Priority: Fewer semester lab classes. Needs ${requiredBufferForSession}+ period buffer (Current: ${Math.max(0, overallSafeBuffer)}).`,
+      };
+    }
+    return {
+      isSafeToMiss: false,
+      reason: `Insufficient overall buffer (${Math.max(0, overallSafeBuffer)} period(s) available, ${requiredBufferForSession} needed).`,
+    };
+  }
+
+  // C. Future attendance implication: If missing today forces future required attendance rate > 80%
+  if (requiredFuturePctIfMissed > 80) {
+    return {
+      isSafeToMiss: false,
+      reason: `Future Risk: Missing this forces ${requiredFuturePctIfMissed.toFixed(1)}% future attendance rate for rest of semester.`,
+    };
+  }
+
+  // Otherwise, it's skippable!
+  return {
+    isSafeToMiss: true,
+    reason: isLab
+      ? `Skippable: Overall buffer (${overallSafeBuffer} periods) covers lab weight.`
+      : `Skippable: Safe semester buffer (${overallSafeBuffer} periods) available.`,
+  };
+}
+
+/**
  * Calculates today's classes and ranks them by priority
  * Rank formula: periods_in_session * drop_below_threshold_if_missed
  */
@@ -208,9 +345,10 @@ export function calculateTodaySessions(
       const sm = subjectsMetricsMap[subject.id];
       if (!sm) continue;
 
+      const sessionPeriods = 1;
       const session: ScheduleSession = {
         date: todayDate,
-        periods: calItem.periods,
+        periods: sessionPeriods,
         start: calItem.start,
         end: calItem.end,
         time: `${calItem.start} - ${calItem.end}`,
@@ -220,7 +358,7 @@ export function calculateTodaySessions(
       // Simulate missing this session for overall attendance
       const simulatedSubjectMetricsList = Object.values(subjectsMetricsMap).map((m) => {
         if (m.subject.id === subject.id) {
-          const newTotal = m.total + calItem.periods;
+          const newTotal = m.total + sessionPeriods;
           const newAttended = m.attended;
           return {
             ...m,
@@ -244,17 +382,27 @@ export function calculateTodaySessions(
       if (distFromThreshold > 0) priorityScore += distFromThreshold * 2;
       priorityScore += overallDropIfMissed * 15;
 
+      // Calculate semester-wide skippability evaluation
+      const skippableEval = evaluateSemesterSkippability(
+        subject,
+        sessionPeriods,
+        subjectsMetricsMap,
+        scheduleMap,
+        threshold
+      );
+
       result.push({
         subject,
         session,
-        periods: calItem.periods,
+        periods: sessionPeriods,
         time: `${calItem.start} - ${calItem.end}`,
         room: subject.room,
         liveImpactPercentageIfMissed,
         overallDropIfMissed,
         priorityScore,
         safeToMissBefore: sm.safeToMiss,
-        isSafeToMiss: sm.safeToMiss >= calItem.periods,
+        isSafeToMiss: skippableEval.isSafeToMiss,
+        skippableReason: skippableEval.reason,
       });
     }
   } else {
@@ -294,6 +442,15 @@ export function calculateTodaySessions(
 
         const formattedTime = session.start && session.end ? `${session.start} - ${session.end}` : (session.time || subject.defaultTime);
 
+        // Calculate semester-wide skippability evaluation
+        const skippableEval = evaluateSemesterSkippability(
+          subject,
+          session.periods,
+          subjectsMetricsMap,
+          scheduleMap,
+          threshold
+        );
+
         result.push({
           subject,
           session,
@@ -304,7 +461,8 @@ export function calculateTodaySessions(
           overallDropIfMissed,
           priorityScore,
           safeToMissBefore: sm.safeToMiss,
-          isSafeToMiss: sm.safeToMiss >= session.periods,
+          isSafeToMiss: skippableEval.isSafeToMiss,
+          skippableReason: skippableEval.reason,
         });
       }
     }

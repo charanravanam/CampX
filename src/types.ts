@@ -89,6 +89,7 @@ export interface TodaySessionInfo {
   priorityScore: number;
   safeToMissBefore: number;
   isSafeToMiss: boolean;
+  skippableReason?: string;
 }
 
 export interface DayForecast {
