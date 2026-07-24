@@ -75,10 +75,10 @@ export const Header: React.FC<HeaderProps> = ({ semesterName, overallMetrics, on
             type="button"
             onClick={handleRefresh}
             title="Refresh Attendance"
-            className="relative p-1.5 rounded-xl bg-slate-100 hover:bg-emerald-50 text-slate-600 hover:text-emerald-700 border border-slate-200 hover:border-emerald-200 transition active:scale-95 flex items-center justify-center"
+            className="relative p-2 rounded-xl bg-slate-100 hover:bg-emerald-50 text-slate-600 hover:text-emerald-700 border border-slate-200 hover:border-emerald-200 transition active:scale-95 flex items-center justify-center min-w-[38px] min-h-[38px]"
           >
             <RefreshCw
-              className={`w-3.5 h-3.5 ${isRefreshing ? 'animate-spin text-emerald-600' : ''}`}
+              className={`w-4 h-4 ${isRefreshing ? 'animate-spin text-emerald-600' : ''}`}
             />
             {showToast && (
               <span className="absolute -bottom-8 right-0 bg-slate-900 text-white text-[10px] font-bold px-2 py-0.5 rounded-md shadow-md whitespace-nowrap flex items-center gap-1 animate-in fade-in slide-in-from-top-1">

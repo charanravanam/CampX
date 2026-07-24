@@ -22,7 +22,7 @@ const STORAGE_KEY_TODAY_MARKS = 'attendwise_today_marks_v1';
 export function useAttendanceData() {
   const data: AttendWiseData = rawData as AttendWiseData;
 
-  const [todayMarks, setTodayMarks] = useState<Record<string, 'attended' | 'missed'>>(() => {
+  const [todayMarks, setTodayMarks] = useState<Record<string, 'attended' | 'missed' | 'exempt'>>(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY_TODAY_MARKS);
       if (saved) {
@@ -188,12 +188,87 @@ export function useAttendanceData() {
     }));
   }, []);
 
+  const findOverlappingSessions = useCallback(
+    (targetSessionKey: string, targetSubjectId: string) => {
+      const parts = targetSessionKey.split('_');
+      if (parts.length < 3) return [];
+
+      const date = parts[0];
+      const startTime = parts.slice(2).join('_');
+
+      const daySessions = data.rawCalendar?.[date] || [];
+      let targetStart = startTime;
+      let targetEnd = '';
+
+      const targetItem =
+        daySessions.find(
+          (item) => item.subjectId.toString() === targetSubjectId && item.start === startTime
+        ) || daySessions.find((item) => item.subjectId.toString() === targetSubjectId);
+
+      if (targetItem) {
+        targetStart = targetItem.start;
+        targetEnd = targetItem.end;
+      }
+
+      if (!targetEnd && data.subjectSchedule) {
+        for (const [sId, sched] of Object.entries(data.subjectSchedule)) {
+          if (sId === targetSubjectId) {
+            const match = (sched as any[]).find((s) => s.date === date && (s.start === startTime || !startTime));
+            if (match) {
+              targetStart = match.start;
+              targetEnd = match.end;
+              break;
+            }
+          }
+        }
+      }
+
+      if (!targetStart || !targetEnd) return [];
+
+      const overlapping: { subjectId: string; sessionKey: string }[] = [];
+      const seenSubjectIds = new Set<string>();
+
+      daySessions.forEach((item) => {
+        const sId = item.subjectId.toString();
+        if (sId !== targetSubjectId && item.start === targetStart && item.end === targetEnd) {
+          seenSubjectIds.add(sId);
+          overlapping.push({
+            subjectId: sId,
+            sessionKey: `${date}_${sId}_${item.start}`,
+          });
+        }
+      });
+
+      if (data.subjectSchedule) {
+        for (const [sId, sched] of Object.entries(data.subjectSchedule)) {
+          if (sId !== targetSubjectId && !seenSubjectIds.has(sId)) {
+            const matches = (sched as any[]).filter(
+              (s) => s.date === date && s.start === targetStart && s.end === targetEnd
+            );
+            if (matches.length > 0) {
+              seenSubjectIds.add(sId);
+              overlapping.push({
+                subjectId: sId,
+                sessionKey: `${date}_${sId}_${targetStart}`,
+              });
+            }
+          }
+        }
+      }
+
+      return overlapping;
+    },
+    [data.rawCalendar, data.subjectSchedule]
+  );
+
   const markTodaySession = useCallback(
     (subjectId: string, sessionKey: string, newStatus: 'attended' | 'missed' | 'unmarked') => {
-      setTodayMarks((prevMarks) => {
-        const oldStatus = prevMarks[sessionKey];
-        if (oldStatus === newStatus) return prevMarks;
+      const oldStatus = todayMarks[sessionKey];
+      if (oldStatus === newStatus) return;
 
+      const overlappingList = findOverlappingSessions(sessionKey, subjectId);
+
+      setTodayMarks((prevMarks) => {
         const nextMarks = { ...prevMarks };
         if (newStatus === 'unmarked') {
           delete nextMarks[sessionKey];
@@ -201,46 +276,71 @@ export function useAttendanceData() {
           nextMarks[sessionKey] = newStatus;
         }
 
-        setStudentStates((prevStates) => {
-          const defaultSubj = data.subjects.find((s) => s.id === subjectId);
-          const current = prevStates[subjectId] || {
-            subjectId,
+        if (newStatus === 'attended' || newStatus === 'missed') {
+          overlappingList.forEach((item) => {
+            nextMarks[item.sessionKey] = 'exempt';
+          });
+        } else {
+          overlappingList.forEach((item) => {
+            if (nextMarks[item.sessionKey] === 'exempt') {
+              delete nextMarks[item.sessionKey];
+            }
+          });
+        }
+
+        return nextMarks;
+      });
+
+      setStudentStates((prevStates) => {
+        const nextStates = { ...prevStates };
+
+        const updateSubject = (sId: string, fromStatus?: string, toStatus?: string) => {
+          const defaultSubj = data.subjects.find((s) => s.id === sId);
+          const weight = defaultSubj?.attendanceWeight ?? (defaultSubj?.type === 'lab' ? 2 : 1);
+          const current = nextStates[sId] || {
+            subjectId: sId,
             attended: defaultSubj?.defaultAttended ?? 10,
             total: defaultSubj?.defaultTotal ?? 12,
           };
           let newAttended = current.attended;
           let newTotal = current.total;
 
-          // Revert old mark (always fixed 1)
-          if (oldStatus === 'attended') {
-            newAttended = Math.max(0, newAttended - 1);
-            newTotal = Math.max(newAttended, newTotal - 1);
-          } else if (oldStatus === 'missed') {
-            newTotal = Math.max(newAttended, newTotal - 1);
+          if (fromStatus === 'attended') {
+            newAttended = Math.max(0, newAttended - weight);
+            newTotal = Math.max(newAttended, newTotal - weight);
+          } else if (fromStatus === 'missed') {
+            newTotal = Math.max(newAttended, newTotal - weight);
           }
 
-          // Apply new mark (always fixed 1)
-          if (newStatus === 'attended') {
-            newAttended = newAttended + 1;
-            newTotal = newTotal + 1;
-          } else if (newStatus === 'missed') {
-            newTotal = newTotal + 1;
+          if (toStatus === 'attended') {
+            newAttended = newAttended + weight;
+            newTotal = newTotal + weight;
+          } else if (toStatus === 'missed') {
+            newTotal = newTotal + weight;
           }
 
-          return {
-            ...prevStates,
-            [subjectId]: {
-              subjectId,
-              attended: newAttended,
-              total: Math.max(newAttended, newTotal),
-            },
+          nextStates[sId] = {
+            subjectId: sId,
+            attended: newAttended,
+            total: Math.max(newAttended, newTotal),
           };
+        };
+
+        updateSubject(subjectId, oldStatus, newStatus);
+
+        overlappingList.forEach((item) => {
+          const otherOldStatus = todayMarks[item.sessionKey];
+          if (newStatus === 'attended' || newStatus === 'missed') {
+            if (otherOldStatus === 'attended' || otherOldStatus === 'missed') {
+              updateSubject(item.subjectId, otherOldStatus, 'exempt');
+            }
+          }
         });
 
-        return nextMarks;
+        return nextStates;
       });
     },
-    [data.subjects]
+    [todayMarks, findOverlappingSessions, data.subjects]
   );
 
   const batchUpdateSubjectStates = useCallback((states: StudentSubjectState[]) => {

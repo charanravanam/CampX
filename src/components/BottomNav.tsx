@@ -28,22 +28,22 @@ export const BottomNav: React.FC<BottomNavProps> = ({ activeTab, onTabChange }) 
             <button
               key={tab.id}
               onClick={() => onTabChange(tab.id)}
-              className={`relative flex flex-col items-center py-1.5 px-3 rounded-2xl transition-all duration-150 ${
+              className={`relative flex flex-col items-center justify-center py-2 px-3.5 min-h-[48px] rounded-2xl transition-all duration-150 ${
                 isActive ? 'text-emerald-600 font-bold' : 'text-slate-500 hover:text-slate-800'
               }`}
             >
               <div className="relative">
-                <Icon className={`w-5 h-5 transition-transform duration-200 ${isActive ? 'scale-110 text-emerald-600' : 'scale-100 text-slate-500'}`} />
+                <Icon className={`w-6 h-6 transition-transform duration-200 ${isActive ? 'scale-110 text-emerald-600' : 'scale-100 text-slate-500'}`} />
                 {isActive && (
                   <motion.div
                     layoutId="activeTabGlow"
-                    className="absolute -inset-1.5 bg-emerald-100/80 rounded-full -z-10"
+                    className="absolute -inset-2 bg-emerald-100/80 rounded-full -z-10"
                     transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                   />
                 )}
               </div>
 
-              <span className="text-[11px] font-semibold mt-1 tracking-tight">{tab.label}</span>
+              <span className="text-xs font-semibold mt-1 tracking-tight">{tab.label}</span>
 
               {isActive && (
                 <motion.div

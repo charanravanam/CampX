@@ -14,6 +14,7 @@ import {
   Calendar,
   RefreshCw,
   Sparkles,
+  Users,
 } from 'lucide-react';
 
 import { OverallMetrics, TodaySessionInfo, SubjectMetrics } from '../types';
@@ -24,7 +25,7 @@ interface TodayTabProps {
   subjectMetricsMap: Record<string, SubjectMetrics>;
   currentDate: string;
   threshold: number;
-  todayMarks: Record<string, 'attended' | 'missed'>;
+  todayMarks: Record<string, 'attended' | 'missed' | 'exempt' | string>;
   onMarkTodaySession: (
     subjectId: string,
     sessionKey: string,
@@ -98,94 +99,94 @@ export const TodayTab: React.FC<TodayTabProps> = ({
       <motion.div
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-white rounded-3xl p-4 sm:p-5 border border-slate-200/90 shadow-xs relative overflow-hidden"
+        className="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-xs relative overflow-hidden"
       >
         {/* Soft background ambient gradient glow */}
         <div className={`absolute -right-12 -top-12 w-48 h-48 rounded-full bg-gradient-to-br ${theme.glow} blur-2xl pointer-events-none`} />
 
         {/* Top Header Row with Refresh */}
-        <div className="flex items-center justify-between mb-3">
-          <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800">
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800 tracking-wide uppercase">
             <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
             <span>Attendance Snapshot</span>
           </div>
           <button
             type="button"
             onClick={handleRefreshHome}
-            className="flex items-center gap-1.5 px-2.5 py-1 bg-slate-100 hover:bg-emerald-50 text-slate-600 hover:text-emerald-800 border border-slate-200/80 hover:border-emerald-300 rounded-full text-[11px] font-bold transition active:scale-95"
+            className="flex items-center gap-1.5 px-3 py-1 bg-slate-100 hover:bg-emerald-50 text-slate-600 hover:text-emerald-800 border border-slate-200/80 hover:border-emerald-300 rounded-full text-[11px] font-bold transition active:scale-95"
           >
             <RefreshCw className={`w-3 h-3 ${isRefreshing ? 'animate-spin text-emerald-600' : ''}`} />
             <span>{refreshToast ? 'Updated!' : 'Refresh'}</span>
           </button>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-          {/* Circular SVG Ring */}
+        <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-6">
+          {/* Sleek Gradient SVG Progress Gauge */}
           <div className="relative flex items-center justify-center shrink-0">
-            <svg className="w-34 h-34 transform -rotate-90">
+            <svg className="w-32 h-32 transform -rotate-90">
+              <defs>
+                <linearGradient id="snapshotGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor={overallMetrics.isAboveThreshold ? '#059669' : '#e11d48'} />
+                  <stop offset="100%" stopColor={overallMetrics.isAboveThreshold ? '#0d9488' : '#f43f5e'} />
+                </linearGradient>
+              </defs>
               <circle
-                cx="68"
-                cy="68"
-                r={radius}
-                stroke="currentColor"
-                strokeWidth="10"
-                className="text-slate-100"
+                cx="64"
+                cy="64"
+                r={56}
+                stroke="#f1f5f9"
+                strokeWidth="8"
                 fill="transparent"
               />
               <motion.circle
-                cx="68"
-                cy="68"
-                r={radius}
-                stroke={theme.stroke}
-                strokeWidth="10"
+                cx="64"
+                cy="64"
+                r={56}
+                stroke="url(#snapshotGrad)"
+                strokeWidth="8"
                 strokeLinecap="round"
                 fill="transparent"
-                initial={{ strokeDashoffset: circumference }}
-                animate={{ strokeDashoffset }}
+                initial={{ strokeDashoffset: 2 * Math.PI * 56 }}
+                animate={{ strokeDashoffset: 2 * Math.PI * 56 - (Math.min(100, overallMetrics.currentPercentage) / 100) * (2 * Math.PI * 56) }}
                 transition={{ duration: 0.8, ease: 'easeOut' }}
-                style={{ strokeDasharray: circumference }}
+                style={{ strokeDasharray: 2 * Math.PI * 56 }}
               />
             </svg>
 
             <div className="absolute flex flex-col items-center justify-center text-center">
-              <span className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">
-                {parseFloat(overallMetrics.currentPercentage.toFixed(2))}%
+              <span className="text-2xl font-black tracking-tight text-slate-900">
+                {overallMetrics.currentPercentage.toFixed(2)}%
               </span>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mt-0.5">
-                Overall Rate
+              <span className={`inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full mt-0.5 ${
+                overallMetrics.isAboveThreshold ? 'bg-emerald-50 text-emerald-700' : 'bg-rose-50 text-rose-700'
+              }`}>
+                {overallMetrics.isAboveThreshold ? 'On Track' : 'Low Attendance'}
               </span>
             </div>
           </div>
 
-          {/* Action Headline & Summary Details */}
-          <div className="flex-1 text-center sm:text-left space-y-2.5">
-            <div
-              className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold border ${theme.badgeBg}`}
-            >
-              <StatusIcon className="w-3.5 h-3.5 shrink-0" />
-              <span>Target: {(threshold * 100).toFixed(0)}% Requirement</span>
-            </div>
-
+          {/* Minimal Headline & Clean Stats Grid */}
+          <div className="flex-1 text-center sm:text-left space-y-3">
             <h2 className="text-sm sm:text-base font-bold text-slate-900 leading-snug">
               {overallMetrics.headline}
             </h2>
 
-            <div className="grid grid-cols-2 gap-2 pt-0.5">
-              <div className="bg-slate-50/90 rounded-2xl p-2.5 border border-slate-100/90">
-                <div className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">
-                  Safe Skips Right Now
+            <div className="grid grid-cols-2 gap-2.5 pt-1">
+              <div className="bg-slate-50 rounded-2xl p-3 border border-slate-100">
+                <div className="text-[10px] text-slate-400 font-bold uppercase tracking-wider mb-0.5">
+                  Safe Skips
                 </div>
-                <div className="text-sm font-black text-emerald-700">
-                  {overallMetrics.totalSafeToMiss} periods
+                <div className="text-base font-extrabold text-emerald-700">
+                  {overallMetrics.totalSafeToMiss} <span className="text-xs font-semibold text-slate-500">periods</span>
                 </div>
               </div>
 
-              <div className="bg-slate-50/90 rounded-2xl p-2.5 border border-slate-100/90">
-                <div className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">
-                  Conducted So Far
+              <div className="bg-slate-50 rounded-2xl p-3 border border-slate-100">
+                <div className="text-[10px] text-slate-400 font-bold uppercase tracking-wider mb-0.5">
+                  Conducted
                 </div>
-                <div className="text-sm font-black text-slate-800">
-                  {overallMetrics.totalAttended} / {overallMetrics.totalPeriods}
+                <div className="text-base font-extrabold text-slate-800">
+                  {overallMetrics.totalAttended} <span className="text-xs font-normal text-slate-400">/ {overallMetrics.totalPeriods}</span>
                 </div>
               </div>
             </div>
@@ -248,33 +249,40 @@ export const TodayTab: React.FC<TodayTabProps> = ({
                   initial={{ opacity: 0, y: 6 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.03 }}
-                  className={`bg-white rounded-2xl p-3.5 border transition-all shadow-xs ${
+                  className={`bg-white rounded-2xl p-4 border transition-all shadow-xs ${
                     currentMark === 'attended'
-                      ? 'border-emerald-400 bg-emerald-50/20'
+                      ? 'border-emerald-500 bg-emerald-50/20'
                       : currentMark === 'missed'
-                      ? 'border-rose-400 bg-rose-50/20'
+                      ? 'border-rose-500 bg-rose-50/20'
+                      : currentMark === 'exempt'
+                      ? 'border-blue-300 bg-blue-50/30'
                       : isMustAttend
                       ? 'border-slate-200 border-l-4 border-l-rose-500'
                       : 'border-slate-200 border-l-4 border-l-emerald-500'
                   }`}
                 >
-                  {/* TOP HEADER: TIME + MUST ATTEND / SKIPPABLE BADGE */}
-                  <div className="flex items-center justify-between gap-2 mb-2">
-                    <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700 bg-slate-100 px-2.5 py-1 rounded-lg border border-slate-200">
-                      <Clock className="w-3.5 h-3.5 text-slate-500" />
+                  {/* TOP HEADER: TIME + MUST ATTEND / SKIPPABLE / EXEMPT BADGE */}
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700 bg-slate-100 px-3 py-1.5 rounded-xl border border-slate-200">
+                      <Clock className="w-4 h-4 text-slate-500 shrink-0" />
                       <span>{ts.time}</span>
                     </div>
 
-                    {/* MUST ATTEND VS SKIPPABLE BADGE */}
+                    {/* MUST ATTEND VS SKIPPABLE VS EXEMPT BADGE */}
                     <div>
-                      {isMustAttend ? (
-                        <span className="inline-flex items-center gap-1 text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-rose-100 text-rose-800 border border-rose-200 uppercase tracking-wider">
-                          <AlertCircle className="w-3 h-3 text-rose-600 shrink-0" />
+                      {currentMark === 'exempt' ? (
+                        <span className="inline-flex items-center gap-1.5 text-[11px] font-extrabold px-3 py-1.5 rounded-full bg-blue-100 text-blue-800 border border-blue-200 uppercase tracking-wider">
+                          <Users className="w-4 h-4 text-blue-600 shrink-0" />
+                          Exempt (Group Split)
+                        </span>
+                      ) : isMustAttend ? (
+                        <span className="inline-flex items-center gap-1.5 text-[11px] font-extrabold px-3 py-1.5 rounded-full bg-rose-100 text-rose-800 border border-rose-200 uppercase tracking-wider">
+                          <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
                           Must Attend
                         </span>
                       ) : (
-                        <span className="inline-flex items-center gap-1 text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200 uppercase tracking-wider">
-                          <CheckCircle2 className="w-3 h-3 text-emerald-600 shrink-0" />
+                        <span className="inline-flex items-center gap-1.5 text-[11px] font-extrabold px-3 py-1.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200 uppercase tracking-wider">
+                          <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                           Skippable
                         </span>
                       )}
@@ -282,109 +290,106 @@ export const TodayTab: React.FC<TodayTabProps> = ({
                   </div>
 
                   {/* SUBJECT DETAILS */}
-                  <div className="flex items-start justify-between gap-2">
+                  <div className="flex items-start justify-between gap-3 my-1">
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-1.5 mb-1 flex-wrap">
-                        <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200">
-                          {ts.subject.code}
-                        </span>
-                        <span
-                          className={`text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider ${
-                            ts.subject.type === 'lab'
-                              ? 'bg-amber-100 text-amber-800 border border-amber-200'
-                              : 'bg-blue-50 text-blue-700 border border-blue-200'
-                          }`}
-                        >
-                          {ts.periods} Period{ts.periods > 1 ? 's' : ''} {ts.subject.type === 'lab' ? 'Lab' : 'Lecture'}
-                        </span>
-                      </div>
-
                       <h4
                         onClick={() => onNavigateToSubject && onNavigateToSubject(ts.subject.id)}
-                        className="text-xs sm:text-sm font-bold text-slate-900 hover:text-emerald-700 cursor-pointer transition leading-snug line-clamp-2"
+                        className="text-base sm:text-lg font-extrabold text-slate-900 hover:text-emerald-700 cursor-pointer transition leading-snug"
                       >
                         {ts.subject.name}
                       </h4>
 
-                      <div className="flex items-center gap-1.5 text-[11px] text-slate-500 mt-1">
-                        <MapPin className="w-3 h-3 text-slate-400 shrink-0" />
+                      <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-500 mt-1.5">
+                        <MapPin className="w-4 h-4 text-slate-400 shrink-0" />
                         <span>{ts.room}</span>
                       </div>
-
-                      {ts.skippableReason && (
-                        <div
-                          className={`mt-2 text-[10px] font-semibold px-2.5 py-1 rounded-lg flex items-start gap-1.5 leading-snug ${
-                            isMustAttend
-                              ? 'bg-rose-50/90 text-rose-900 border border-rose-200/80'
-                              : 'bg-emerald-50/90 text-emerald-900 border border-emerald-200/80'
-                          }`}
-                        >
-                          <Sparkles className="w-3 h-3 shrink-0 mt-0.5" />
-                          <span>{ts.skippableReason}</span>
-                        </div>
-                      )}
                     </div>
 
                     {/* SUBJECT PERCENTAGE RATE */}
                     <div className="text-right shrink-0">
                       <div
-                        className={`text-sm sm:text-base font-extrabold ${
+                        className={`text-base sm:text-lg font-black ${
                           sm?.currentPercentage >= 75 ? 'text-emerald-700' : 'text-rose-700'
                         }`}
                       >
                         {sm ? parseFloat(sm.currentPercentage.toFixed(2)) : 0}%
                       </div>
-                      <div className="text-[10px] text-slate-500 font-medium">
-                        {sm?.attended ?? 0}/{sm?.total ?? 0} periods
+                      <div className="text-xs text-slate-500 font-semibold mt-0.5">
+                        {sm?.attended ?? 0}/{sm?.total ?? 0}
                       </div>
                     </div>
                   </div>
 
                   {/* DAILY MARK ATTENDANCE ACTION BUTTONS */}
-                  <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between gap-2">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 shrink-0">
-                      Today's Status:
+                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between gap-3">
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-400 shrink-0">
+                      Today:
                     </span>
 
-                    <div className="grid grid-cols-2 gap-2 flex-1 max-w-[220px]">
-                      <button
-                        type="button"
-                        onClick={() =>
-                          onMarkTodaySession(
-                            ts.subject.id,
-                            sessionKey,
-                            currentMark === 'attended' ? 'unmarked' : 'attended'
-                          )
-                        }
-                        className={`py-1.5 px-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1 ${
-                          currentMark === 'attended'
-                            ? 'bg-emerald-600 text-white shadow-xs'
-                            : 'bg-slate-100 text-slate-700 hover:bg-emerald-50 hover:text-emerald-800'
-                        }`}
-                      >
-                        <Check className="w-3.5 h-3.5" />
-                        <span>Attended</span>
-                      </button>
+                    {currentMark === 'exempt' ? (
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 flex-1 bg-blue-50/90 border border-blue-200/90 rounded-xl px-3 py-2 text-xs font-bold text-blue-900">
+                        <div className="flex items-center gap-1.5 min-w-0">
+                          <Users className="w-4 h-4 text-blue-600 shrink-0" />
+                          <span className="truncate">Group Split (Exempt)</span>
+                        </div>
+                        <div className="flex items-center gap-1.5 shrink-0 w-full sm:w-auto justify-end">
+                          <button
+                            type="button"
+                            onClick={() => onMarkTodaySession(ts.subject.id, sessionKey, 'attended')}
+                            className="text-[11px] font-bold text-emerald-700 hover:text-emerald-900 bg-white hover:bg-emerald-50 px-2 py-1 rounded-lg border border-emerald-200 shrink-0 transition"
+                          >
+                            Mark Attended
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => onMarkTodaySession(ts.subject.id, sessionKey, 'missed')}
+                            className="text-[11px] font-bold text-rose-700 hover:text-rose-900 bg-white hover:bg-rose-50 px-2 py-1 rounded-lg border border-rose-200 shrink-0 transition"
+                          >
+                            Mark Missed
+                          </button>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="grid grid-cols-2 gap-2.5 flex-1 max-w-[240px]">
+                        <button
+                          type="button"
+                          onClick={() =>
+                            onMarkTodaySession(
+                              ts.subject.id,
+                              sessionKey,
+                              currentMark === 'attended' ? 'unmarked' : 'attended'
+                            )
+                          }
+                          className={`py-2.5 px-3 min-h-[44px] rounded-xl text-xs sm:text-sm font-bold transition flex items-center justify-center gap-2 active:scale-95 ${
+                            currentMark === 'attended'
+                              ? 'bg-emerald-600 text-white shadow-xs'
+                              : 'bg-slate-100 text-slate-700 hover:bg-emerald-50 hover:text-emerald-800 border border-slate-200/80'
+                          }`}
+                        >
+                          <Check className="w-4.5 h-4.5 stroke-[2.5]" />
+                          <span>Attended</span>
+                        </button>
 
-                      <button
-                        type="button"
-                        onClick={() =>
-                          onMarkTodaySession(
-                            ts.subject.id,
-                            sessionKey,
-                            currentMark === 'missed' ? 'unmarked' : 'missed'
-                          )
-                        }
-                        className={`py-1.5 px-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1 ${
-                          currentMark === 'missed'
-                            ? 'bg-rose-600 text-white shadow-xs'
-                            : 'bg-slate-100 text-slate-700 hover:bg-rose-50 hover:text-rose-800'
-                        }`}
-                      >
-                        <X className="w-3.5 h-3.5" />
-                        <span>Missed</span>
-                      </button>
-                    </div>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            onMarkTodaySession(
+                              ts.subject.id,
+                              sessionKey,
+                              currentMark === 'missed' ? 'unmarked' : 'missed'
+                            )
+                          }
+                          className={`py-2.5 px-3 min-h-[44px] rounded-xl text-xs sm:text-sm font-bold transition flex items-center justify-center gap-2 active:scale-95 ${
+                            currentMark === 'missed'
+                              ? 'bg-rose-600 text-white shadow-xs'
+                              : 'bg-slate-100 text-slate-700 hover:bg-rose-50 hover:text-rose-800 border border-slate-200/80'
+                          }`}
+                        >
+                          <X className="w-4.5 h-4.5 stroke-[2.5]" />
+                          <span>Missed</span>
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </motion.div>
               );

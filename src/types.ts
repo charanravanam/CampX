@@ -10,6 +10,7 @@ export interface SubjectInfo {
   defaultTime: string;
   defaultAttended: number;
   defaultTotal: number;
+  attendanceWeight?: number;
 }
 
 export interface ScheduleSession {

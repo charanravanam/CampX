@@ -160,17 +160,17 @@ export const ForecastTab: React.FC<ForecastTabProps> = ({
         <button
           onClick={handlePrevDay}
           disabled={currentIndex <= 0}
-          className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 disabled:opacity-30 transition"
+          className="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 disabled:opacity-30 transition min-w-[44px] min-h-[44px] flex items-center justify-center"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
 
         <div className="text-center">
-          <div className="text-xs font-bold text-emerald-700 flex items-center justify-center gap-1">
-            <CalendarIcon className="w-3.5 h-3.5" />
+          <div className="text-sm font-bold text-emerald-700 flex items-center justify-center gap-1.5">
+            <CalendarIcon className="w-4 h-4" />
             <span>{formattedDate}</span>
           </div>
-          <div className="text-[11px] text-slate-500 mt-0.5">
+          <div className="text-xs text-slate-500 mt-0.5">
             {totalDayPeriods} Period{totalDayPeriods !== 1 ? 's' : ''} Scheduled
           </div>
         </div>
@@ -178,7 +178,7 @@ export const ForecastTab: React.FC<ForecastTabProps> = ({
         <button
           onClick={handleNextDay}
           disabled={currentIndex >= allDates.length - 1}
-          className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 disabled:opacity-30 transition"
+          className="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 disabled:opacity-30 transition min-w-[44px] min-h-[44px] flex items-center justify-center"
         >
           <ChevronRight className="w-5 h-5" />
         </button>
@@ -213,25 +213,25 @@ export const ForecastTab: React.FC<ForecastTabProps> = ({
       <div className="grid grid-cols-2 gap-2 bg-slate-100 p-1.5 rounded-2xl border border-slate-200">
         <button
           onClick={() => setScenarioMode('attend')}
-          className={`py-2.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 ${
+          className={`py-3 px-3 min-h-[44px] rounded-xl text-xs sm:text-sm font-bold transition flex items-center justify-center gap-2 ${
             scenarioMode === 'attend'
               ? 'bg-emerald-600 text-white shadow-xs'
               : 'text-slate-600 hover:text-slate-900'
           }`}
         >
-          <CheckCircle2 className="w-4 h-4" />
+          <CheckCircle2 className="w-4.5 h-4.5" />
           <span>Attend All ({totalDayPeriods} periods)</span>
         </button>
 
         <button
           onClick={() => setScenarioMode('miss')}
-          className={`py-2.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 ${
+          className={`py-3 px-3 min-h-[44px] rounded-xl text-xs sm:text-sm font-bold transition flex items-center justify-center gap-2 ${
             scenarioMode === 'miss'
               ? 'bg-rose-600 text-white shadow-xs'
               : 'text-slate-600 hover:text-slate-900'
           }`}
         >
-          <XCircle className="w-4 h-4" />
+          <XCircle className="w-4.5 h-4.5" />
           <span>Miss All ({totalDayPeriods} periods)</span>
         </button>
       </div>
