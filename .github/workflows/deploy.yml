@@ -1,25 +1,15 @@
-name: Deploy to GitHub Pages
+name: Build Android APK
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: 'pages'
-  cancel-in-progress: true
-
 jobs:
-  build-and-deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build-apk:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,17 +22,27 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build project
+      - name: Build web app
         run: npm run build
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+      - name: Sync Capacitor
+        run: npx cap sync android
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Setup Java
+        uses: actions/setup-java@v4
         with:
-          path: './dist'
+          distribution: temurin
+          java-version: 21
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Grant Gradle permission
+        run: chmod +x android/gradlew
+
+      - name: Build Debug APK
+        working-directory: android
+        run: ./gradlew assembleDebug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: CampX-Debug-APK
+          path: android/app/build/outputs/apk/debug/app-debug.apk
