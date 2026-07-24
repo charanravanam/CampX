@@ -28,6 +28,12 @@ jobs:
       - name: Sync Capacitor
         run: npx cap sync android
 
+      - name: Check Capacitor
+        run: |
+          npm ls @capacitor/cli
+          ls -la
+          ls node_modules/.bin
+
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
