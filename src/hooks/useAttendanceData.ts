@@ -12,19 +12,58 @@ import {
   calculateSubjectMetrics,
   calculateOverallAttendance,
   calculateTodaySessions,
+  calculateConductedPeriods,
 } from '../utils/attendanceEngine';
 
-const STORAGE_KEY_STATES = 'attendwise_student_states_v2';
-const STORAGE_KEY_THRESHOLD = 'attendwise_threshold_v1';
-const STORAGE_KEY_ONBOARDED = 'attendwise_onboarded_v1';
-const STORAGE_KEY_TODAY_MARKS = 'attendwise_today_marks_v1';
+const STORAGE_KEY_STATES = 'campx_ai_student_states_v2';
+const OLD_STORAGE_KEY_STATES = 'attendwise_student_states_v2';
+
+const STORAGE_KEY_THRESHOLD = 'campx_ai_threshold_v1';
+const OLD_STORAGE_KEY_THRESHOLD = 'attendwise_threshold_v1';
+
+const STORAGE_KEY_ONBOARDED = 'campx_ai_onboarded_v1';
+const OLD_STORAGE_KEY_ONBOARDED = 'attendwise_onboarded_v1';
+
+const STORAGE_KEY_TODAY_MARKS = 'campx_ai_today_marks_v1';
+const OLD_STORAGE_KEY_TODAY_MARKS = 'attendwise_today_marks_v1';
+
+function resolveCurrentDate(data: AttendWiseData): string {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  const todayStr = `${year}-${month}-${day}`;
+
+  // Check if todayStr exists in rawCalendar or subjectSchedule
+  if (data.rawCalendar && data.rawCalendar[todayStr]) {
+    return todayStr;
+  }
+  const hasSchedule = Object.values(data.subjectSchedule || {}).some((list) =>
+    list.some((s) => s.date === todayStr)
+  );
+  if (hasSchedule) {
+    return todayStr;
+  }
+
+  // Check if todayStr falls within semester range
+  const startDate = data.metadata.startDate || '2026-07-06';
+  const endDate = data.metadata.endDate || '2026-11-05';
+  if (todayStr >= startDate && todayStr <= endDate) {
+    return todayStr;
+  }
+
+  return data.metadata.currentDate || '2026-07-23';
+}
 
 export function useAttendanceData() {
   const data: AttendWiseData = rawData as AttendWiseData;
 
+  const currentDate = useMemo(() => resolveCurrentDate(data), [data]);
+  const todayDate = currentDate;
+
   const [todayMarks, setTodayMarks] = useState<Record<string, 'attended' | 'missed' | 'exempt'>>(() => {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY_TODAY_MARKS);
+      const saved = localStorage.getItem(STORAGE_KEY_TODAY_MARKS) || localStorage.getItem(OLD_STORAGE_KEY_TODAY_MARKS);
       if (saved) {
         const parsed = JSON.parse(saved);
         if (parsed && typeof parsed === 'object') return parsed;
@@ -37,7 +76,7 @@ export function useAttendanceData() {
 
   const [threshold, setThreshold] = useState<number>(() => {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY_THRESHOLD);
+      const saved = localStorage.getItem(STORAGE_KEY_THRESHOLD) || localStorage.getItem(OLD_STORAGE_KEY_THRESHOLD);
       if (saved) return parseFloat(saved);
     } catch {
       // ignore
@@ -47,7 +86,7 @@ export function useAttendanceData() {
 
   const [isOnboarded, setIsOnboarded] = useState<boolean>(() => {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY_ONBOARDED);
+      const saved = localStorage.getItem(STORAGE_KEY_ONBOARDED) || localStorage.getItem(OLD_STORAGE_KEY_ONBOARDED);
       return saved === 'true';
     } catch {
       return false;
@@ -56,7 +95,7 @@ export function useAttendanceData() {
 
   const [studentStates, setStudentStates] = useState<Record<string, StudentSubjectState>>(() => {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY_STATES);
+      const saved = localStorage.getItem(STORAGE_KEY_STATES) || localStorage.getItem(OLD_STORAGE_KEY_STATES);
       if (saved) {
         const parsed = JSON.parse(saved);
         if (parsed && typeof parsed === 'object') return parsed;
@@ -65,13 +104,17 @@ export function useAttendanceData() {
       // ignore
     }
 
-    // Default snapshot from JSON
+    // Default snapshot calculated accurately from timetable up to currentDate
+    const cDate = resolveCurrentDate(data);
     const initial: Record<string, StudentSubjectState> = {};
     data.subjects.forEach((subj) => {
+      const total = calculateConductedPeriods(subj.id, cDate, data);
+      const defaultPct = subj.defaultTotal && subj.defaultTotal > 0 ? (subj.defaultAttended / subj.defaultTotal) : 0.8;
+      const attended = Math.round(defaultPct * total);
       initial[subj.id] = {
         subjectId: subj.id,
-        attended: subj.defaultAttended ?? 10,
-        total: subj.defaultTotal ?? 12,
+        attended,
+        total,
       };
     });
     return initial;
@@ -113,48 +156,22 @@ export function useAttendanceData() {
     }
   }, [todayMarks]);
 
-  const currentDate = useMemo(() => {
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = String(now.getMonth() + 1).padStart(2, '0');
-    const day = String(now.getDate()).padStart(2, '0');
-    const todayStr = `${year}-${month}-${day}`;
-
-    // Check if todayStr exists in rawCalendar or subjectSchedule
-    if (data.rawCalendar && data.rawCalendar[todayStr]) {
-      return todayStr;
-    }
-    const hasSchedule = Object.values(data.subjectSchedule || {}).some((list) =>
-      list.some((s) => s.date === todayStr)
-    );
-    if (hasSchedule) {
-      return todayStr;
-    }
-
-    // Check if todayStr falls within semester range
-    const startDate = data.metadata.startDate || '2026-07-06';
-    const endDate = data.metadata.endDate || '2026-11-05';
-    if (todayStr >= startDate && todayStr <= endDate) {
-      return todayStr;
-    }
-
-    return data.metadata.currentDate || '2026-07-23';
-  }, [data]);
-
   // Compute metrics per subject
   const subjectMetricsMap = useMemo(() => {
     const map: Record<string, SubjectMetrics> = {};
     data.subjects.forEach((subj) => {
+      const calculatedTotal = calculateConductedPeriods(subj.id, currentDate, data);
+      const defaultPct = subj.defaultTotal && subj.defaultTotal > 0 ? (subj.defaultAttended / subj.defaultTotal) : 0.8;
       const state = studentStates[subj.id] || {
         subjectId: subj.id,
-        attended: subj.defaultAttended ?? 10,
-        total: subj.defaultTotal ?? 12,
+        attended: Math.round(defaultPct * calculatedTotal),
+        total: calculatedTotal,
       };
       const schedule = data.subjectSchedule[subj.id] || [];
       map[subj.id] = calculateSubjectMetrics(subj, state, schedule, currentDate, threshold, data.rawCalendar);
     });
     return map;
-  }, [data.subjects, data.subjectSchedule, studentStates, currentDate, threshold, data.rawCalendar]);
+  }, [data, studentStates, currentDate, threshold]);
 
   const subjectMetricsList = useMemo(() => {
     return data.subjects.map((s) => subjectMetricsMap[s.id]);
@@ -168,14 +185,14 @@ export function useAttendanceData() {
   // Today's classes and impact
   const todaySessions: TodaySessionInfo[] = useMemo(() => {
     return calculateTodaySessions(
-      currentDate,
+      todayDate,
       data.subjects,
       data.subjectSchedule,
       subjectMetricsMap,
       threshold,
       data.rawCalendar
     );
-  }, [currentDate, data.subjects, data.subjectSchedule, subjectMetricsMap, threshold, data.rawCalendar]);
+  }, [todayDate, data.subjects, data.subjectSchedule, subjectMetricsMap, threshold, data.rawCalendar]);
 
   const updateSubjectState = useCallback((subjectId: string, attended: number, total: number) => {
     setStudentStates((prev) => ({
@@ -296,11 +313,15 @@ export function useAttendanceData() {
 
         const updateSubject = (sId: string, fromStatus?: string, toStatus?: string) => {
           const defaultSubj = data.subjects.find((s) => s.id === sId);
-          const weight = defaultSubj?.attendanceWeight ?? (defaultSubj?.type === 'lab' ? 2 : 1);
+          const sessionInToday = data.subjectSchedule?.[sId]?.find((s) => s.date === currentDate) ||
+            (data.rawCalendar?.[currentDate]?.find((s) => String(s.subjectId) === String(sId)));
+          const weight = sessionInToday?.periods || 1;
+          const calculatedTotal = calculateConductedPeriods(sId, currentDate, data);
+          const defaultPct = defaultSubj?.defaultTotal && defaultSubj.defaultTotal > 0 ? (defaultSubj.defaultAttended / defaultSubj.defaultTotal) : 0.8;
           const current = nextStates[sId] || {
             subjectId: sId,
-            attended: defaultSubj?.defaultAttended ?? 10,
-            total: defaultSubj?.defaultTotal ?? 12,
+            attended: Math.round(defaultPct * calculatedTotal),
+            total: calculatedTotal,
           };
           let newAttended = current.attended;
           let newTotal = current.total;
@@ -366,12 +387,16 @@ export function useAttendanceData() {
   }, []);
 
   const resetData = useCallback(() => {
+    const cDate = resolveCurrentDate(data);
     const initial: Record<string, StudentSubjectState> = {};
     data.subjects.forEach((subj) => {
+      const total = calculateConductedPeriods(subj.id, cDate, data);
+      const defaultPct = subj.defaultTotal && subj.defaultTotal > 0 ? (subj.defaultAttended / subj.defaultTotal) : 0.8;
+      const attended = Math.round(defaultPct * total);
       initial[subj.id] = {
         subjectId: subj.id,
-        attended: subj.defaultAttended ?? 10,
-        total: subj.defaultTotal ?? 12,
+        attended,
+        total,
       };
     });
     setStudentStates(initial);
@@ -382,7 +407,7 @@ export function useAttendanceData() {
     localStorage.removeItem(STORAGE_KEY_THRESHOLD);
     localStorage.removeItem(STORAGE_KEY_ONBOARDED);
     localStorage.removeItem(STORAGE_KEY_TODAY_MARKS);
-  }, [data.subjects, data.metadata.defaultThreshold]);
+  }, [data]);
 
   const exportData = useCallback(() => {
     const exportObject = {
@@ -399,7 +424,7 @@ export function useAttendanceData() {
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = `attendwise_export_${new Date().toISOString().slice(0, 10)}.json`;
+    link.download = `campx_ai_export_${new Date().toISOString().slice(0, 10)}.json`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

@@ -55,6 +55,8 @@ export default function App() {
         subjects={data.subjects}
         initialStates={studentStates}
         onSave={handleOnboardingSave}
+        currentDate={currentDate}
+        data={data}
       />
     );
   }

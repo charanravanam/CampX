@@ -1,6 +1,6 @@
 {
-  "name": "AttendWise",
-  "short_name": "AttendWise",
+  "name": "CampX AI",
+  "short_name": "CampX AI",
   "description": "Smart College Attendance Tracker & Forecast",
   "start_url": "/",
   "display": "standalone",

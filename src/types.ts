@@ -40,6 +40,8 @@ export interface AttendWiseMetadata {
   institution: string;
 }
 
+export type CampXMetadata = AttendWiseMetadata;
+
 export interface AttendWiseData {
   metadata: AttendWiseMetadata;
   subjects: SubjectInfo[];
@@ -47,6 +49,8 @@ export interface AttendWiseData {
   subjectSchedule: Record<string, ScheduleSession[]>;
   rawCalendar?: Record<string, { subjectId: number | string; periods: number; start: string; end: string }[]>;
 }
+
+export type CampXData = AttendWiseData;
 
 export interface StudentSubjectState {
   subjectId: string;

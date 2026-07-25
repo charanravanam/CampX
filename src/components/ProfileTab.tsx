@@ -67,11 +67,11 @@ export const ProfileTab: React.FC<ProfileTabProps> = ({
   const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
 
   const startEditing = (subj: SubjectInfo) => {
-    const st = studentStates[subj.id] || { attended: subj.defaultAttended, total: subj.defaultTotal };
+    const st = studentStates[subj.id] || { attended: subj.defaultAttended, total: subj.defaultTotal || 1 };
     const pct = st.total > 0 ? parseFloat(((st.attended / st.total) * 100).toFixed(2)) : 80;
     setEditingSubjectId(subj.id);
     setTempPct(pct);
-    setTempTotal(st.total || subj.defaultTotal || 12);
+    setTempTotal(st.total || 1);
   };
 
   const saveEditing = (subjectId: string) => {

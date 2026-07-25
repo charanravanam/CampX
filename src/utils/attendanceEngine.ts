@@ -9,6 +9,65 @@ import {
 } from '../types';
 
 /**
+ * Calculates the total periods conducted for a subject up to currentDate using timetable data.
+ * Counts every scheduled period for that subject from semester start date up to currentDate,
+ * excluding holidays, suspended sessions, and future classes.
+ */
+export function calculateConductedPeriods(
+  subjectId: string,
+  currentDate: string,
+  data: {
+    subjects?: SubjectInfo[];
+    metadata?: { startDate?: string };
+    subjectSchedule?: Record<string, ScheduleSession[]>;
+    calendar?: Array<{ date: string; type?: string; status?: string; isHoliday?: boolean }>;
+    rawCalendar?: Record<string, any[]>;
+  }
+): number {
+  const startDate = data.metadata?.startDate || '2026-07-06';
+  const schedule = data.subjectSchedule?.[subjectId] || [];
+
+  // Build a set of non-instructional / holiday / suspended dates
+  const holidayDates = new Set<string>();
+  if (Array.isArray(data.calendar)) {
+    data.calendar.forEach((c) => {
+      if (
+        c.type === 'holiday' ||
+        c.status === 'suspended' ||
+        c.isHoliday ||
+        (c.type && c.type !== 'instructional')
+      ) {
+        holidayDates.add(c.date);
+      }
+    });
+  }
+
+  let totalConducted = 0;
+
+  if (schedule.length > 0) {
+    schedule.forEach((s) => {
+      if (s.date >= startDate && s.date <= currentDate && !holidayDates.has(s.date)) {
+        totalConducted += typeof s.periods === 'number' && s.periods > 0 ? s.periods : 1;
+      }
+    });
+  } else if (data.rawCalendar) {
+    Object.entries(data.rawCalendar).forEach(([date, sessions]) => {
+      if (date >= startDate && date <= currentDate && !holidayDates.has(date)) {
+        sessions.forEach((sess: any) => {
+          if (String(sess.subjectId) === String(subjectId)) {
+            totalConducted += typeof sess.periods === 'number' && sess.periods > 0 ? sess.periods : 1;
+          }
+        });
+      }
+    });
+  }
+
+  return totalConducted;
+}
+
+export const calculateConductedClasses = calculateConductedPeriods;
+
+/**
  * Calculates current attendance percentage (0..100)
  */
 export function calculateCurrentAttendance(attended: number, total: number): number {
@@ -98,6 +157,8 @@ export function calculateSubjectMetrics(
   const total = Math.max(attended, state.total);
   const currentPercentage = calculateCurrentAttendance(attended, total);
 
+  const isLab = subject.type === 'lab' || subject.name.toLowerCase().includes('lab');
+
   // Total classes scheduled in the timetable for this subject across the whole semester
   const totalClassesInSchedule = schedule.reduce((acc, s) => acc + (typeof s.periods === 'number' && s.periods > 0 ? s.periods : 1), 0);
 
@@ -142,7 +203,8 @@ export function calculateSubjectMetrics(
   // Impact if next session is missed
   let missImpactPercentage = currentPercentage;
   if (nextSession) {
-    missImpactPercentage = calculateCurrentAttendance(attended, total + nextSession.periods);
+    const sessionWeight = nextSession.periods || 1;
+    missImpactPercentage = calculateCurrentAttendance(attended, total + sessionWeight);
   }
 
   return {
@@ -345,7 +407,7 @@ export function calculateTodaySessions(
       const sm = subjectsMetricsMap[subject.id];
       if (!sm) continue;
 
-      const sessionPeriods = 1;
+      const sessionPeriods = typeof calItem.periods === 'number' && calItem.periods > 0 ? calItem.periods : 1;
       const session: ScheduleSession = {
         date: todayDate,
         periods: sessionPeriods,
@@ -489,7 +551,7 @@ export function simulateAttendanceScenarios(
   // Attend All Scenario
   const attendAllMetrics = subjectMetricsList.map((m) => {
     const matchingSessions = sessionsToSimulate.filter((s) => s.subjectId === m.subject.id);
-    const addedPeriods = matchingSessions.reduce((acc, s) => acc + s.periods, 0);
+    const addedPeriods = matchingSessions.reduce((acc, s) => acc + (s.periods || 1), 0);
     if (addedPeriods === 0) return m;
 
     const newAttended = m.attended + addedPeriods;
@@ -510,7 +572,7 @@ export function simulateAttendanceScenarios(
   // Miss All Scenario
   const missAllMetrics = subjectMetricsList.map((m) => {
     const matchingSessions = sessionsToSimulate.filter((s) => s.subjectId === m.subject.id);
-    const addedPeriods = matchingSessions.reduce((acc, s) => acc + s.periods, 0);
+    const addedPeriods = matchingSessions.reduce((acc, s) => acc + (s.periods || 1), 0);
     if (addedPeriods === 0) return m;
 
     const newAttended = m.attended; // 0 added to attended

@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Shield, ArrowRight, Sparkles, Sliders, CheckCircle2, Info, ArrowLeftRight } from 'lucide-react';
-import { SubjectInfo, StudentSubjectState } from '../types';
+import { Shield, ArrowRight, Sparkles, CheckCircle2, Info, ArrowLeftRight, Calendar, FileText, Camera } from 'lucide-react';
+import { SubjectInfo, StudentSubjectState, AttendWiseData } from '../types';
+import rawData from '../data/attendwise-data.json';
+import { calculateConductedPeriods } from '../utils/attendanceEngine';
+import { CampXImportModal } from './CampXImportModal';
 
 interface OnboardingFlowProps {
   subjects: SubjectInfo[];
   initialStates: Record<string, StudentSubjectState>;
   onSave: (states: StudentSubjectState[]) => void;
+  currentDate?: string;
+  data?: AttendWiseData;
 }
 
 const REQUESTED_SUBJECT_ORDER = [
@@ -26,7 +31,24 @@ export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
   subjects,
   initialStates,
   onSave,
+  currentDate,
+  data,
 }) => {
+  const appData = data || (rawData as AttendWiseData);
+  const resolvedDate = currentDate || (() => {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const todayStr = `${year}-${month}-${day}`;
+    const startDate = appData.metadata?.startDate || '2026-07-06';
+    const endDate = appData.metadata?.endDate || '2026-11-05';
+    if (todayStr >= startDate && todayStr <= endDate) {
+      return todayStr;
+    }
+    return appData.metadata?.currentDate || '2026-07-23';
+  })();
+
   const sortedSubjects = React.useMemo(() => {
     return [...subjects].sort((a, b) => {
       const idxA = REQUESTED_SUBJECT_ORDER.indexOf(a.name);
@@ -36,46 +58,47 @@ export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
     });
   }, [subjects]);
 
-  // Store form states by subjectId: percentage, total conducted, and manual edit mode
+  // Auto-calculated total periods conducted from timetable as of resolvedDate
+  const subjectTotals = React.useMemo(() => {
+    const map: Record<string, number> = {};
+    sortedSubjects.forEach((subj) => {
+      map[subj.id] = calculateConductedPeriods(subj.id, resolvedDate, appData);
+    });
+    return map;
+  }, [sortedSubjects, resolvedDate, appData]);
+
+  // Store form percentage by subjectId
   const [subjectPcts, setSubjectPcts] = useState<Record<string, number>>(() => {
     const init: Record<string, number> = {};
     sortedSubjects.forEach((subj) => {
       const state = initialStates[subj.id];
-      const total = state?.total ?? subj.defaultTotal ?? 12;
-      const attended = state?.attended ?? subj.defaultAttended ?? 10;
-      const pct = total > 0 ? (attended / total) * 100 : 80;
-      init[subj.id] = parseFloat(pct.toFixed(2));
-    });
-    return init;
-  });
-
-  const [subjectTotals, setSubjectTotals] = useState<Record<string, number>>(() => {
-    const init: Record<string, number> = {};
-    sortedSubjects.forEach((subj) => {
-      const state = initialStates[subj.id];
-      init[subj.id] = state?.total ?? subj.defaultTotal ?? 12;
+      const total = calculateConductedPeriods(subj.id, resolvedDate, appData);
+      if (state && state.total > 0 && typeof state.attended === 'number') {
+        const pct = (state.attended / state.total) * 100;
+        init[subj.id] = parseFloat(pct.toFixed(2));
+      } else {
+        const defaultPct = subj.defaultTotal && subj.defaultTotal > 0 ? (subj.defaultAttended / subj.defaultTotal) * 100 : 80;
+        init[subj.id] = parseFloat(defaultPct.toFixed(2));
+      }
     });
     return init;
   });
 
   const [overallInput, setOverallInput] = useState<string>('80');
-  const [showAdvanced, setShowAdvanced] = useState<Record<string, boolean>>({});
   
+  // CampX Screenshot Import State
+  const [isImportModalOpen, setIsImportModalOpen] = useState(false);
+  const [importSuccessNotice, setImportSuccessNotice] = useState<string | null>(null);
+
   // Modal state for side-by-side comparison
   const [showComparisonModal, setShowComparisonModal] = useState(false);
   const [pendingStates, setPendingStates] = useState<StudentSubjectState[] | null>(null);
-  const [calculatedAttendwisePct, setCalculatedAttendwisePct] = useState<number>(80);
+  const [calculatedCampXPct, setCalculatedCampXPct] = useState<number>(80);
 
   const handlePctChange = (subjectId: string, val: string) => {
     const num = parseFloat(val);
     const safeNum = isNaN(num) ? 0 : Math.min(100, Math.max(0, num));
     setSubjectPcts((prev) => ({ ...prev, [subjectId]: safeNum }));
-  };
-
-  const handleTotalChange = (subjectId: string, val: string) => {
-    const num = parseInt(val, 10);
-    const safeNum = isNaN(num) ? 1 : Math.max(1, num);
-    setSubjectTotals((prev) => ({ ...prev, [subjectId]: safeNum }));
   };
 
   const handleQuickPreset = (pct: number) => {
@@ -97,14 +120,26 @@ export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
     }
   };
 
+  const handleApplyExtracted = (extractedPcts: Record<string, number>, avgPct: number) => {
+    setSubjectPcts((prev) => ({
+      ...prev,
+      ...extractedPcts,
+    }));
+    setOverallInput(avgPct.toString());
+    setImportSuccessNotice(`Imported attendance data from CampX screenshot (${avgPct}% overall)`);
+    setTimeout(() => {
+      setImportSuccessNotice(null);
+    }, 6000);
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     let totalAttendedSum = 0;
     let totalPeriodsSum = 0;
 
-    const updatedStates: StudentSubjectState[] = subjects.map((subj) => {
+    const updatedStates: StudentSubjectState[] = sortedSubjects.map((subj) => {
       const pct = subjectPcts[subj.id] ?? 80;
-      const total = subjectTotals[subj.id] ?? subj.defaultTotal ?? 12;
+      const total = subjectTotals[subj.id] || calculateConductedPeriods(subj.id, resolvedDate, appData);
       const attended = Math.round((pct / 100) * total);
       const safeAttended = Math.min(total, Math.max(0, attended));
 
@@ -118,8 +153,8 @@ export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
       };
     });
 
-    const attendwisePct = totalPeriodsSum > 0 ? (totalAttendedSum / totalPeriodsSum) * 100 : 80;
-    setCalculatedAttendwisePct(parseFloat(attendwisePct.toFixed(2)));
+    const campXCalculatedPct = totalPeriodsSum > 0 ? (totalAttendedSum / totalPeriodsSum) * 100 : 80;
+    setCalculatedCampXPct(parseFloat(campXCalculatedPct.toFixed(2)));
     setPendingStates(updatedStates);
     setShowComparisonModal(true);
   };
@@ -145,12 +180,40 @@ export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
             <span>Attendance Planning Engine</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 mb-1">
-            Welcome to <span className="text-emerald-600">AttendWise</span>
+            Welcome to <span className="text-emerald-600">CampX AI</span>
           </h1>
-          <p className="text-xs text-slate-500 max-w-xs mx-auto leading-relaxed">
-            Enter your current attendance percentage for each subject from your portal.
+          <p className="text-xs text-slate-500 max-w-xs mx-auto leading-relaxed mb-3">
+            Enter your current attendance percentage for each subject. Total conducted periods are auto-calculated from the timetable as of {resolvedDate}.
           </p>
+
+          {/* CAMPX SCREENSHOT OCR IMPORT BUTTON */}
+          <button
+            type="button"
+            onClick={() => setIsImportModalOpen(true)}
+            className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-extrabold py-2.5 px-4 rounded-2xl shadow-sm border border-emerald-500/20 flex items-center justify-center gap-2 text-xs transition active:scale-[0.99] group"
+          >
+            <Camera className="w-4 h-4 text-emerald-100 group-hover:scale-110 transition" />
+            <span>Import from CampX Screenshot</span>
+            <span className="bg-emerald-800/60 text-emerald-100 text-[10px] px-2 py-0.5 rounded-full font-bold ml-1">
+              Browser OCR
+            </span>
+          </button>
         </motion.div>
+
+        {/* SUCCESS IMPORT NOTICE BANNER */}
+        <AnimatePresence>
+          {importSuccessNotice && (
+            <motion.div
+              initial={{ opacity: 0, y: -8, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -8, scale: 0.98 }}
+              className="mb-4 bg-emerald-50 border border-emerald-300/80 rounded-2xl p-3 flex items-center gap-2.5 text-emerald-900 shadow-xs"
+            >
+              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+              <span className="text-xs font-bold flex-1">{importSuccessNotice}</span>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* OVERALL QUICK PRESET SECTION */}
         <div className="bg-white rounded-2xl p-3.5 border border-slate-200 shadow-xs mb-5 space-y-2.5">
@@ -202,10 +265,9 @@ export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
         <form onSubmit={handleSubmit} className="space-y-3">
           {sortedSubjects.map((subj, index) => {
             const pct = subjectPcts[subj.id] ?? 80;
-            const total = subjectTotals[subj.id] ?? subj.defaultTotal ?? 12;
+            const total = subjectTotals[subj.id] || calculateConductedPeriods(subj.id, resolvedDate, appData);
             const estAttended = Math.round((pct / 100) * total);
             const isSafe = pct >= 75;
-            const isAdv = showAdvanced[subj.id] || false;
 
             return (
               <motion.div
@@ -213,7 +275,7 @@ export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.02 }}
-                className="bg-white rounded-2xl p-3.5 border border-slate-200 shadow-xs space-y-3"
+                className="bg-white rounded-2xl p-3.5 border border-slate-200 shadow-xs space-y-2.5"
               >
                 <div className="flex items-start justify-between gap-2">
                   <div className="flex-1 min-w-0">
@@ -259,48 +321,16 @@ export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
                   </div>
                 </div>
 
-                {/* ESTIMATED PERIODS FOOTER */}
-                <div className="flex items-center justify-between text-[11px] pt-1 border-t border-slate-100 text-slate-500">
-                  <span>
-                    Est. <strong className="text-slate-800 font-bold">{estAttended}</strong> / {total} periods attended
+                {/* AUTO-CALCULATED CONDUCTED PERIODS DISPLAY */}
+                <div className="flex items-center justify-between text-[11px] pt-2 border-t border-slate-100 text-slate-500">
+                  <span className="text-slate-600 font-medium">
+                    Attended: <strong className="text-slate-900 font-extrabold">{estAttended}</strong> / <span className="font-bold text-slate-800">{total}</span> periods conducted
                   </span>
-                  <button
-                    type="button"
-                    onClick={() =>
-                      setShowAdvanced((prev) => ({ ...prev, [subj.id]: !prev[subj.id] }))
-                    }
-                    className="text-[10px] text-emerald-700 font-semibold hover:underline flex items-center gap-1"
-                  >
-                    <Sliders className="w-3 h-3" />
-                    {isAdv ? 'Hide Periods' : 'Edit Periods'}
-                  </button>
+                  <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-slate-400 bg-slate-50 px-2 py-0.5 rounded-md border border-slate-200/60">
+                    <Calendar className="w-3 h-3 text-slate-400" />
+                    Auto-calculated
+                  </span>
                 </div>
-
-                {/* ADVANCED PERIODS EDIT */}
-                {isAdv && (
-                  <div className="pt-2 grid grid-cols-2 gap-2 border-t border-slate-100 bg-slate-50/80 p-2.5 rounded-xl">
-                    <div>
-                      <label className="block text-[10px] font-semibold text-slate-500 mb-0.5">
-                        Conducted So Far
-                      </label>
-                      <input
-                        type="number"
-                        min="1"
-                        value={total}
-                        onChange={(e) => handleTotalChange(subj.id, e.target.value)}
-                        className="w-full bg-white border border-slate-200 rounded-lg px-2 py-1 text-xs font-bold text-slate-900"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[10px] font-semibold text-slate-500 mb-0.5">
-                        Calculated Attended
-                      </label>
-                      <div className="py-1 px-2 text-xs font-bold text-slate-800 bg-slate-100 rounded-lg">
-                        {estAttended} periods
-                      </div>
-                    </div>
-                  </div>
-                )}
               </motion.div>
             );
           })}
@@ -355,10 +385,10 @@ export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
 
                 <div className="bg-emerald-50/80 rounded-2xl p-3 border border-emerald-200 text-center space-y-1">
                   <span className="text-[10px] font-extrabold uppercase tracking-wider text-emerald-800 block">
-                    AttendWise Rate
+                    CampX AI Rate
                   </span>
                   <div className="text-xl font-black text-emerald-700">
-                    {calculatedAttendwisePct.toFixed(2)}%
+                    {calculatedCampXPct.toFixed(2)}%
                   </div>
                   <span className="text-[10px] text-emerald-600 font-semibold block">
                     Core Calculated
@@ -368,7 +398,7 @@ export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
 
               {/* Calculated Difference Display */}
               {(() => {
-                const diff = calculatedAttendwisePct - campXValue;
+                const diff = calculatedCampXPct - campXValue;
                 const formattedDiff = (diff >= 0 ? '+' : '') + diff.toFixed(2) + '%';
                 const isWithinExpectedRange = Math.abs(diff) <= 1.5;
 
@@ -411,6 +441,14 @@ export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
           </div>
         )}
       </AnimatePresence>
+      {/* CAMPX SCREENSHOT IMPORT MODAL */}
+      <CampXImportModal
+        isOpen={isImportModalOpen}
+        onClose={() => setIsImportModalOpen(false)}
+        subjects={sortedSubjects}
+        subjectTotals={subjectTotals}
+        onApply={handleApplyExtracted}
+      />
     </div>
   );
 };

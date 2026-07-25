@@ -1,6 +1,6 @@
-# AttendWise - PWA Attendance Tracker & Forecast
+# CampX AI - PWA Attendance Tracker & Forecast
 
-AttendWise is a Progressive Web App (PWA) designed to track college attendance, calculate subject metrics, and forecast future attendance scenarios.
+CampX AI is a Progressive Web App (PWA) designed to track college attendance, calculate subject metrics, and forecast future attendance scenarios.
 
 ## Features & PWA Capabilities
 - **Installable**: Supports "Add to Home Screen" on Android, iOS, and desktop browsers.
@@ -12,12 +12,12 @@ AttendWise is a Progressive Web App (PWA) designed to track college attendance, 
 
 ## Deployment to GitHub Pages Guide
 
-Follow these steps to deploy **AttendWise** on GitHub Pages:
+Follow these steps to deploy **CampX AI** on GitHub Pages:
 
 ### 1. How to Create a GitHub Repository
 1. Go to [GitHub](https://github.com) and sign in to your account.
 2. Click the **+** icon in the top right corner and select **New repository**.
-3. Name your repository (e.g., `AttendWise`).
+3. Name your repository (e.g., `CampX-AI`).
 4. Set visibility to **Public** (or **Private** if you have GitHub Pro/Enterprise for Pages).
 5. Do **not** initialize with a README, .gitignore, or license. Click **Create repository**.
 
@@ -25,7 +25,7 @@ Follow these steps to deploy **AttendWise** on GitHub Pages:
 1. Open `vite.config.ts` in your code editor.
 2. Update the `repoName` variable on line 8 to match your exact GitHub repository name:
    ```typescript
-   const repoName = 'AttendWise'; // Replace with your repository name
+   const repoName = 'CampX-AI'; // Replace with your repository name
    ```
 3. *Note:* When deployed via GitHub Actions, the workflow automatically sets `GITHUB_REPOSITORY`, so the base path will be configured dynamically as `/${repository_name}/`.
 
@@ -35,7 +35,7 @@ Open your terminal in the project directory and run:
 ```bash
 git init
 git add .
-git commit -m "Initial commit - AttendWise PWA"
+git commit -m "Initial commit - CampX AI PWA"
 git branch -M main
 git remote add origin https://github.com/<YOUR_USERNAME>/<YOUR_REPOSITORY_NAME>.git
 git push -u origin main

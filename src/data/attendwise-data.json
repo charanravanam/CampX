@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "appName": "AttendWise",
+    "appName": "CampX AI",
     "semester": "Semester 3 - B.Tech Mechanical (Sec A)",
     "startDate": "2026-07-06",
     "endDate": "2026-11-05",
@@ -28,8 +28,8 @@
       "teacher": "Cheruku Chandrika • Maimiuna Siddiqui",
       "room": "FM Lab",
       "defaultTime": "11:10 AM - 01:10 PM",
-      "defaultAttended": 10,
-      "defaultTotal": 12
+      "defaultAttended": 5,
+      "defaultTotal": 6
     },
     {
       "id": "5050",
@@ -51,7 +51,7 @@
       "room": "Comp Lab 1",
       "defaultTime": "11:10 AM - 01:10 PM",
       "defaultAttended": 0,
-      "defaultTotal": 2
+      "defaultTotal": 4
     },
     {
       "id": "5052",
@@ -72,8 +72,8 @@
       "teacher": "Dr. Ananda Mohan  Vemula • Prakash Moparthi",
       "room": "Prod Lab",
       "defaultTime": "11:10 AM - 01:10 PM",
-      "defaultAttended": 8,
-      "defaultTotal": 10
+      "defaultAttended": 5,
+      "defaultTotal": 6
     },
     {
       "id": "5054",
@@ -105,8 +105,8 @@
       "teacher": "PRAVEEN CHITYALA • Vanga Gopal",
       "room": "MOS Lab",
       "defaultTime": "11:10 AM - 01:10 PM",
-      "defaultAttended": 8,
-      "defaultTotal": 10
+      "defaultAttended": 5,
+      "defaultTotal": 6
     },
     {
       "id": "5057",
@@ -4091,131 +4091,131 @@
     "5049": [
       {
         "date": "2026-07-08",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-07-09",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-07-15",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-07-16",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-07-22",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-07-23",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-07-29",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-07-30",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-08-05",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-08-06",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-08-12",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-08-13",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-08-19",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-08-20",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-08-26",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-08-27",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-09-09",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-09-10",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-09-16",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-09-17",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-09-23",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-09-24",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-09-30",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-10-01",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-10-07",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-10-08",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-10-14",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-10-15",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-10-28",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-10-29",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-11-04",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-11-05",
-        "periods": 2
+        "periods": 1
       }
     ],
     "5050": [
@@ -4569,257 +4569,257 @@
     "5052": [
       {
         "date": "2026-07-07",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-07-09",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-07-14",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-07-16",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-07-21",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-07-23",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-07-28",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-07-30",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-08-04",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-08-06",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-08-11",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-08-13",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-08-18",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-08-20",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-08-25",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-08-27",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-09-08",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-09-10",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-09-15",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-09-17",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-09-22",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-09-24",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-09-29",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-10-01",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-10-06",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-10-08",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-10-13",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-10-15",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-10-27",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-10-29",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-11-03",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-11-05",
-        "periods": 2
+        "periods": 1
       }
     ],
     "5053": [
       {
         "date": "2026-07-08",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-07-10",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-07-15",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-07-17",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-07-22",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-07-24",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-07-29",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-07-31",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-08-05",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-08-07",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-08-12",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-08-14",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-08-19",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-08-21",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-08-26",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-08-28",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-09-09",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-09-11",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-09-16",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-09-18",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-09-23",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-09-25",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-09-30",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-10-02",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-10-07",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-10-09",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-10-14",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-10-23",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-10-28",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-10-30",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-11-04",
-        "periods": 2
+        "periods": 1
       }
     ],
     "5054": [
@@ -5417,127 +5417,127 @@
     "5056": [
       {
         "date": "2026-07-09",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-07-10",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-07-16",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-07-17",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-07-23",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-07-24",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-07-30",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-07-31",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-08-06",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-08-07",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-08-13",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-08-14",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-08-20",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-08-21",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-08-27",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-08-28",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-09-10",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-09-11",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-09-17",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-09-18",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-09-24",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-09-25",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-10-01",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-10-02",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-10-08",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-10-09",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-10-15",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-10-23",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-10-29",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-10-30",
-        "periods": 2
+        "periods": 1
       },
       {
         "date": "2026-11-05",
-        "periods": 2
+        "periods": 1
       }
     ],
     "5057": [
@@ -5927,7 +5927,7 @@
       },
       {
         "subjectId": 5049,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -5939,7 +5939,7 @@
       },
       {
         "subjectId": 5053,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -5959,7 +5959,7 @@
     "2026-07-09": [
       {
         "subjectId": 5049,
-        "periods": 2,
+        "periods": 1,
         "start": "11:10",
         "end": "13:10"
       },
@@ -5983,7 +5983,7 @@
       },
       {
         "subjectId": 5056,
-        "periods": 2,
+        "periods": 1,
         "start": "11:10",
         "end": "13:10"
       },
@@ -6009,7 +6009,7 @@
       },
       {
         "subjectId": 5053,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -6021,7 +6021,7 @@
       },
       {
         "subjectId": 5056,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -6111,7 +6111,7 @@
       },
       {
         "subjectId": 5049,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -6123,7 +6123,7 @@
       },
       {
         "subjectId": 5053,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -6143,7 +6143,7 @@
     "2026-07-16": [
       {
         "subjectId": 5049,
-        "periods": 2,
+        "periods": 1,
         "start": "11:10",
         "end": "13:10"
       },
@@ -6167,7 +6167,7 @@
       },
       {
         "subjectId": 5056,
-        "periods": 2,
+        "periods": 1,
         "start": "11:10",
         "end": "13:10"
       },
@@ -6193,7 +6193,7 @@
       },
       {
         "subjectId": 5053,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -6205,7 +6205,7 @@
       },
       {
         "subjectId": 5056,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -6327,7 +6327,7 @@
       },
       {
         "subjectId": 5049,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -6339,7 +6339,7 @@
       },
       {
         "subjectId": 5053,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -6359,7 +6359,7 @@
     "2026-07-23": [
       {
         "subjectId": 5049,
-        "periods": 2,
+        "periods": 1,
         "start": "11:10",
         "end": "13:10"
       },
@@ -6383,7 +6383,7 @@
       },
       {
         "subjectId": 5056,
-        "periods": 2,
+        "periods": 1,
         "start": "11:10",
         "end": "13:10"
       },
@@ -6409,7 +6409,7 @@
       },
       {
         "subjectId": 5053,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -6421,7 +6421,7 @@
       },
       {
         "subjectId": 5056,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -6543,7 +6543,7 @@
       },
       {
         "subjectId": 5049,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -6555,7 +6555,7 @@
       },
       {
         "subjectId": 5053,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -6575,7 +6575,7 @@
     "2026-07-30": [
       {
         "subjectId": 5049,
-        "periods": 2,
+        "periods": 1,
         "start": "11:10",
         "end": "13:10"
       },
@@ -6599,7 +6599,7 @@
       },
       {
         "subjectId": 5056,
-        "periods": 2,
+        "periods": 1,
         "start": "11:10",
         "end": "13:10"
       },
@@ -6625,7 +6625,7 @@
       },
       {
         "subjectId": 5053,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -6637,7 +6637,7 @@
       },
       {
         "subjectId": 5056,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -6759,7 +6759,7 @@
       },
       {
         "subjectId": 5049,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -6771,7 +6771,7 @@
       },
       {
         "subjectId": 5053,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -6791,7 +6791,7 @@
     "2026-08-06": [
       {
         "subjectId": 5049,
-        "periods": 2,
+        "periods": 1,
         "start": "11:10",
         "end": "13:10"
       },
@@ -6815,7 +6815,7 @@
       },
       {
         "subjectId": 5056,
-        "periods": 2,
+        "periods": 1,
         "start": "11:10",
         "end": "13:10"
       },
@@ -6841,7 +6841,7 @@
       },
       {
         "subjectId": 5053,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -6853,7 +6853,7 @@
       },
       {
         "subjectId": 5056,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -6943,7 +6943,7 @@
       },
       {
         "subjectId": 5049,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -6955,7 +6955,7 @@
       },
       {
         "subjectId": 5053,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -6975,7 +6975,7 @@
     "2026-08-13": [
       {
         "subjectId": 5049,
-        "periods": 2,
+        "periods": 1,
         "start": "11:10",
         "end": "13:10"
       },
@@ -6999,7 +6999,7 @@
       },
       {
         "subjectId": 5056,
-        "periods": 2,
+        "periods": 1,
         "start": "11:10",
         "end": "13:10"
       },
@@ -7025,7 +7025,7 @@
       },
       {
         "subjectId": 5053,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -7037,7 +7037,7 @@
       },
       {
         "subjectId": 5056,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -7127,7 +7127,7 @@
       },
       {
         "subjectId": 5049,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -7139,7 +7139,7 @@
       },
       {
         "subjectId": 5053,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -7159,7 +7159,7 @@
     "2026-08-20": [
       {
         "subjectId": 5049,
-        "periods": 2,
+        "periods": 1,
         "start": "11:10",
         "end": "13:10"
       },
@@ -7183,7 +7183,7 @@
       },
       {
         "subjectId": 5056,
-        "periods": 2,
+        "periods": 1,
         "start": "11:10",
         "end": "13:10"
       },
@@ -7209,7 +7209,7 @@
       },
       {
         "subjectId": 5053,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -7221,7 +7221,7 @@
       },
       {
         "subjectId": 5056,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -7343,7 +7343,7 @@
       },
       {
         "subjectId": 5049,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -7355,7 +7355,7 @@
       },
       {
         "subjectId": 5053,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -7375,7 +7375,7 @@
     "2026-08-27": [
       {
         "subjectId": 5049,
-        "periods": 2,
+        "periods": 1,
         "start": "11:10",
         "end": "13:10"
       },
@@ -7399,7 +7399,7 @@
       },
       {
         "subjectId": 5056,
-        "periods": 2,
+        "periods": 1,
         "start": "11:10",
         "end": "13:10"
       },
@@ -7425,7 +7425,7 @@
       },
       {
         "subjectId": 5053,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -7437,7 +7437,7 @@
       },
       {
         "subjectId": 5056,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -7527,7 +7527,7 @@
       },
       {
         "subjectId": 5049,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -7539,7 +7539,7 @@
       },
       {
         "subjectId": 5053,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -7559,7 +7559,7 @@
     "2026-09-10": [
       {
         "subjectId": 5049,
-        "periods": 2,
+        "periods": 1,
         "start": "11:10",
         "end": "13:10"
       },
@@ -7583,7 +7583,7 @@
       },
       {
         "subjectId": 5056,
-        "periods": 2,
+        "periods": 1,
         "start": "11:10",
         "end": "13:10"
       },
@@ -7609,7 +7609,7 @@
       },
       {
         "subjectId": 5053,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -7621,7 +7621,7 @@
       },
       {
         "subjectId": 5056,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -7711,7 +7711,7 @@
       },
       {
         "subjectId": 5049,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -7723,7 +7723,7 @@
       },
       {
         "subjectId": 5053,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -7743,7 +7743,7 @@
     "2026-09-17": [
       {
         "subjectId": 5049,
-        "periods": 2,
+        "periods": 1,
         "start": "11:10",
         "end": "13:10"
       },
@@ -7767,7 +7767,7 @@
       },
       {
         "subjectId": 5056,
-        "periods": 2,
+        "periods": 1,
         "start": "11:10",
         "end": "13:10"
       },
@@ -7793,7 +7793,7 @@
       },
       {
         "subjectId": 5053,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -7805,7 +7805,7 @@
       },
       {
         "subjectId": 5056,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -7927,7 +7927,7 @@
       },
       {
         "subjectId": 5049,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -7939,7 +7939,7 @@
       },
       {
         "subjectId": 5053,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -7959,7 +7959,7 @@
     "2026-09-24": [
       {
         "subjectId": 5049,
-        "periods": 2,
+        "periods": 1,
         "start": "11:10",
         "end": "13:10"
       },
@@ -7983,7 +7983,7 @@
       },
       {
         "subjectId": 5056,
-        "periods": 2,
+        "periods": 1,
         "start": "11:10",
         "end": "13:10"
       },
@@ -8009,7 +8009,7 @@
       },
       {
         "subjectId": 5053,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -8021,7 +8021,7 @@
       },
       {
         "subjectId": 5056,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -8143,7 +8143,7 @@
       },
       {
         "subjectId": 5049,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -8155,7 +8155,7 @@
       },
       {
         "subjectId": 5053,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -8175,7 +8175,7 @@
     "2026-10-01": [
       {
         "subjectId": 5049,
-        "periods": 2,
+        "periods": 1,
         "start": "11:10",
         "end": "13:10"
       },
@@ -8199,7 +8199,7 @@
       },
       {
         "subjectId": 5056,
-        "periods": 2,
+        "periods": 1,
         "start": "11:10",
         "end": "13:10"
       },
@@ -8225,7 +8225,7 @@
       },
       {
         "subjectId": 5053,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -8237,7 +8237,7 @@
       },
       {
         "subjectId": 5056,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -8359,7 +8359,7 @@
       },
       {
         "subjectId": 5049,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -8371,7 +8371,7 @@
       },
       {
         "subjectId": 5053,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -8391,7 +8391,7 @@
     "2026-10-08": [
       {
         "subjectId": 5049,
-        "periods": 2,
+        "periods": 1,
         "start": "11:10",
         "end": "13:10"
       },
@@ -8415,7 +8415,7 @@
       },
       {
         "subjectId": 5056,
-        "periods": 2,
+        "periods": 1,
         "start": "11:10",
         "end": "13:10"
       },
@@ -8441,7 +8441,7 @@
       },
       {
         "subjectId": 5053,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -8453,7 +8453,7 @@
       },
       {
         "subjectId": 5056,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -8575,7 +8575,7 @@
       },
       {
         "subjectId": 5049,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -8587,7 +8587,7 @@
       },
       {
         "subjectId": 5053,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -8607,7 +8607,7 @@
     "2026-10-15": [
       {
         "subjectId": 5049,
-        "periods": 2,
+        "periods": 1,
         "start": "11:10",
         "end": "13:10"
       },
@@ -8631,7 +8631,7 @@
       },
       {
         "subjectId": 5056,
-        "periods": 2,
+        "periods": 1,
         "start": "11:10",
         "end": "13:10"
       },
@@ -8657,7 +8657,7 @@
       },
       {
         "subjectId": 5053,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -8669,7 +8669,7 @@
       },
       {
         "subjectId": 5056,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -8791,7 +8791,7 @@
       },
       {
         "subjectId": 5049,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -8803,7 +8803,7 @@
       },
       {
         "subjectId": 5053,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -8823,7 +8823,7 @@
     "2026-10-29": [
       {
         "subjectId": 5049,
-        "periods": 2,
+        "periods": 1,
         "start": "11:10",
         "end": "13:10"
       },
@@ -8847,7 +8847,7 @@
       },
       {
         "subjectId": 5056,
-        "periods": 2,
+        "periods": 1,
         "start": "11:10",
         "end": "13:10"
       },
@@ -8873,7 +8873,7 @@
       },
       {
         "subjectId": 5053,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -8885,7 +8885,7 @@
       },
       {
         "subjectId": 5056,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -9007,7 +9007,7 @@
       },
       {
         "subjectId": 5049,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -9019,7 +9019,7 @@
       },
       {
         "subjectId": 5053,
-        "periods": 2,
+        "periods": 1,
         "start": "14:00",
         "end": "16:00"
       },
@@ -9039,7 +9039,7 @@
     "2026-11-05": [
       {
         "subjectId": 5049,
-        "periods": 2,
+        "periods": 1,
         "start": "11:10",
         "end": "13:10"
       },
@@ -9063,7 +9063,7 @@
       },
       {
         "subjectId": 5056,
-        "periods": 2,
+        "periods": 1,
         "start": "11:10",
         "end": "13:10"
       },
