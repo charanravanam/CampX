@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import {
-  AttendWiseData,
+  CampXData,
   StudentSubjectState,
   SubjectMetrics,
   OverallMetrics,
@@ -27,7 +27,7 @@ const OLD_STORAGE_KEY_ONBOARDED = 'attendwise_onboarded_v1';
 const STORAGE_KEY_TODAY_MARKS = 'campx_ai_today_marks_v1';
 const OLD_STORAGE_KEY_TODAY_MARKS = 'attendwise_today_marks_v1';
 
-function resolveCurrentDate(data: AttendWiseData): string {
+function resolveCurrentDate(data: CampXData): string {
   const now = new Date();
   const year = now.getFullYear();
   const month = String(now.getMonth() + 1).padStart(2, '0');
@@ -56,7 +56,7 @@ function resolveCurrentDate(data: AttendWiseData): string {
 }
 
 export function useAttendanceData() {
-  const data: AttendWiseData = rawData as AttendWiseData;
+  const data: CampXData = rawData as CampXData;
 
   const currentDate = useMemo(() => resolveCurrentDate(data), [data]);
   const todayDate = currentDate;

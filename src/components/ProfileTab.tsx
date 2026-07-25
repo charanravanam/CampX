@@ -12,14 +12,14 @@ import {
 } from 'lucide-react';
 
 import {
-  AttendWiseMetadata,
+  CampXMetadata,
   SubjectInfo,
   StudentSubjectState,
   SubjectMetrics,
 } from '../types';
 
 interface ProfileTabProps {
-  metadata: AttendWiseMetadata;
+  metadata: CampXMetadata;
   subjects: SubjectInfo[];
   studentStates: Record<string, StudentSubjectState>;
   subjectMetricsList: SubjectMetrics[];
