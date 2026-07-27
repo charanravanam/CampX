@@ -76,7 +76,7 @@ export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
     });
   }, [subjects]);
 
-  // Auto-calculated total periods conducted from timetable as of resolvedDate
+  // Default conducted periods calculated dynamically from timetable
   const subjectTotals = React.useMemo(() => {
     const map: Record<string, number> = {};
     sortedSubjects.forEach((subj) => {
@@ -233,7 +233,9 @@ export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
 
   const handleLaunchApp = () => {
     const updatedStates: StudentSubjectState[] = sortedSubjects.map((subj) => {
-      const pct = subjectPcts[subj.id] ?? 80;
+      const ext = extractedSubjects.find((r) => r.subjectId === subj.id);
+      const userPct = subjectPcts[subj.id];
+      const pct = typeof userPct === 'number' ? userPct : (ext?.extractedPercentage ?? 80);
       const total = subjectTotals[subj.id] || calculateConductedPeriods(subj.id, resolvedDate, appData);
       const attended = Math.round((pct / 100) * total);
       const safeAttended = Math.min(total, Math.max(0, attended));
@@ -415,8 +417,10 @@ export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
               {/* EXTRACTED SUBJECT PREVIEW LIST */}
               <div className="space-y-2 max-h-60 overflow-y-auto pr-1">
                 {sortedSubjects.map((subj) => {
-                  const pct = subjectPcts[subj.id] ?? 80;
-                  const total = subjectTotals[subj.id] || 14;
+                  const ext = extractedSubjects.find((r) => r.subjectId === subj.id);
+                  const userPct = subjectPcts[subj.id];
+                  const pct = typeof userPct === 'number' ? userPct : (ext?.extractedPercentage ?? 80);
+                  const total = subjectTotals[subj.id] || calculateConductedPeriods(subj.id, resolvedDate, appData);
                   const attended = Math.round((pct / 100) * total);
 
                   return (

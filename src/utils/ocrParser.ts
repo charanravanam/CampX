@@ -347,10 +347,9 @@ export function parseCampXOCRText(
 
   for (let idx = 0; idx < subjects.length; idx++) {
     const subj = subjects[idx];
-    const targetTotal = subjectTotals[subj.id] || 1;
+    const finalTotal = subjectTotals[subj.id] ?? 0;
 
     let finalPct = 80;
-    let finalAttended = Math.round(0.8 * targetTotal);
     let confidence: 'high' | 'medium' | 'low' = 'low';
     let snippet = '';
 
@@ -358,21 +357,18 @@ export function parseCampXOCRText(
       const extRow = extractedRows[idx];
       finalPct = extRow.pct;
       snippet = extRow.snippet;
-      if (extRow.attended !== null) {
-        finalAttended = extRow.attended;
-      } else {
-        finalAttended = Math.round((finalPct / 100) * targetTotal);
-      }
       confidence = 'high';
     }
+
+    const finalAttended = Math.round((finalPct / 100) * finalTotal);
 
     results.push({
       subjectId: subj.id,
       subjectCode: subj.code,
       subjectName: subj.name,
       extractedPercentage: finalPct,
-      extractedAttended: Math.min(targetTotal, Math.max(0, finalAttended)),
-      extractedTotal: targetTotal,
+      extractedAttended: Math.min(finalTotal, Math.max(0, finalAttended)),
+      extractedTotal: finalTotal,
       confidence,
       matchedBy: 'order',
       matchScore: 1.0,
