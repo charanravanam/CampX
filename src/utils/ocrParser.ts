@@ -167,11 +167,13 @@ export function extractFractionOrPct(
   if (fractionMatches.length > 0) {
     let bestFraction = fractionMatches[0];
     // Find matching denominator if possible
-    for (const fm of fractionMatches) {
-      const den = parseInt(fm[2], 10);
-      if (den === targetTotalConducted) {
-        bestFraction = fm;
-        break;
+    if (targetTotalConducted > 0) {
+      for (const fm of fractionMatches) {
+        const den = parseInt(fm[2], 10);
+        if (den === targetTotalConducted) {
+          bestFraction = fm;
+          break;
+        }
       }
     }
     const att = parseInt(bestFraction[1], 10);
@@ -360,6 +362,7 @@ export function parseCampXOCRText(
       confidence = 'high';
     }
 
+    // Always use the timetable-based total conducted denominator from the calculation engine
     const finalAttended = Math.round((finalPct / 100) * finalTotal);
 
     results.push({

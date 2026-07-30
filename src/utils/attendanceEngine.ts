@@ -26,10 +26,13 @@ export function calculateConductedPeriods(
   currentTime?: string
 ): number {
   const startDate = data.metadata?.startDate || '2026-07-06';
-  const schedule = data.subjectSchedule?.[subjectId] || [];
-  const subject = data.subjects?.find((s) => String(s.id) === String(subjectId));
-  const isDesignThinking = subject?.name.toLowerCase().includes('design thinking');
-  const isLab = !isDesignThinking && (subject?.type === 'lab' || subject?.name.toLowerCase().includes('lab'));
+  const subjects = data.subjects || [];
+  const subject = subjects.find((s) => String(s.id) === String(subjectId));
+  if (!subject) return 0;
+
+  const sName = subject.name.toLowerCase();
+  const isDesignThinking = sName.includes('design thinking');
+  const isLab = !isDesignThinking && (subject.type === 'lab' || sName.includes('lab'));
 
   // Build a set of non-instructional / holiday / suspended dates
   const holidayDates = new Set<string>();
@@ -60,65 +63,137 @@ export function calculateConductedPeriods(
     if (sessionDate < currentDate) return true;
     if (sessionDate > currentDate) return false;
 
-    // sessionDate === currentDate
-    // If currentDate is in the past relative to real today, the whole day is finished
     if (!currentTime && currentDate < todayDateStr) return true;
-    // If currentDate is in the future relative to real today, none of today's sessions have started
     if (!currentTime && currentDate > todayDateStr) return false;
 
-    // Compare time for currentDate
-    if (sessionEndTime) {
-      return sessionEndTime <= effectiveTime;
-    }
-    if (sessionStartTime) {
-      return sessionStartTime <= effectiveTime;
-    }
+    if (sessionEndTime) return sessionEndTime <= effectiveTime;
+    if (sessionStartTime) return sessionStartTime <= effectiveTime;
     return true;
   };
 
-  let totalConducted = 0;
+  const rawCal = data.rawCalendar || {};
 
-  if (schedule.length > 0) {
-    schedule.forEach((s) => {
-      if (s.date && s.date >= startDate && s.date <= currentDate && !holidayDates.has(s.date)) {
-        let endTime = s.end;
-        let startTime = s.start;
+  // For split-batch labs, solve 1-to-1 matching mapping each split-batch lab subject to a unique weekday
+  const assignedWeekdays: Record<string, number> = {};
 
-        if (s.date === currentDate && (!endTime || !startTime) && data.rawCalendar?.[currentDate]) {
-          const rawMatch = data.rawCalendar[currentDate].find(
-            (r: any) => String(r.subjectId) === String(subjectId)
-          );
-          if (rawMatch) {
-            endTime = endTime || rawMatch.end;
-            startTime = startTime || rawMatch.start;
+  if (isLab && Object.keys(rawCal).length > 0) {
+    const allLabSubjects = subjects.filter((s) => {
+      const name = s.name.toLowerCase();
+      return !name.includes('design thinking') && (s.type === 'lab' || name.includes('lab'));
+    });
+
+    const subjectWeekdayOptions: Record<string, number[]> = {};
+    const splitBatchSubjectIds = new Set<string>();
+
+    allLabSubjects.forEach((labSub) => {
+      const lId = String(labSub.id);
+      const daySet = new Set<number>();
+      Object.entries(rawCal).forEach(([date, dayItems]) => {
+        dayItems.forEach((item1: any) => {
+          if (String(item1.subjectId) === lId) {
+            const wDay = new Date(date).getDay();
+            daySet.add(wDay);
+
+            const hasOverlap = dayItems.some(
+              (item2: any) =>
+                String(item2.subjectId) !== lId &&
+                item1.start === item2.start &&
+                item1.end === item2.end
+            );
+            if (hasOverlap) {
+              splitBatchSubjectIds.add(lId);
+            }
+          }
+        });
+      });
+      subjectWeekdayOptions[lId] = Array.from(daySet).sort();
+    });
+
+    if (splitBatchSubjectIds.has(String(subjectId))) {
+      const splitSubIds = Array.from(splitBatchSubjectIds).sort();
+
+      const solveMatching = (
+        index: number,
+        currentAssignment: Record<string, number>,
+        usedDays: Set<number>
+      ): Record<string, number> | null => {
+        if (index === splitSubIds.length) {
+          return currentAssignment;
+        }
+        const lId = splitSubIds[index];
+        const options = subjectWeekdayOptions[lId] || [];
+
+        for (const day of options) {
+          if (!usedDays.has(day)) {
+            usedDays.add(day);
+            currentAssignment[lId] = day;
+            const res = solveMatching(index + 1, currentAssignment, usedDays);
+            if (res) return res;
+            usedDays.delete(day);
+            delete currentAssignment[lId];
           }
         }
+        return null;
+      };
 
-        if (isSessionFinished(s.date, endTime, startTime)) {
-          const periodCount = isLab
-            ? 2
-            : typeof s.periods === 'number' && s.periods > 0
-            ? s.periods
-            : 1;
-          totalConducted += periodCount;
-        }
+      const solution = solveMatching(0, {}, new Set<number>());
+      if (solution) {
+        Object.assign(assignedWeekdays, solution);
       }
-    });
-  } else if (data.rawCalendar) {
-    Object.entries(data.rawCalendar).forEach(([date, sessions]) => {
+    }
+  }
+
+  const targetWeekday = assignedWeekdays[String(subjectId)];
+
+  let totalConducted = 0;
+
+  if (Object.keys(rawCal).length > 0) {
+    Object.entries(rawCal).forEach(([date, sessions]) => {
       if (date >= startDate && date <= currentDate && !holidayDates.has(date)) {
+        const wDay = new Date(date).getDay();
+        if (targetWeekday !== undefined && wDay !== targetWeekday) {
+          return;
+        }
+
         sessions.forEach((sess: any) => {
           if (String(sess.subjectId) === String(subjectId)) {
             if (isSessionFinished(date, sess.end, sess.start)) {
-              const periodCount = isLab
-                ? 2
-                : typeof sess.periods === 'number' && sess.periods > 0
-                ? sess.periods
-                : 1;
+              let periodCount = sess.periods;
+              if (!periodCount || periodCount === 1) {
+                if (isLab) {
+                  if (sess.start && sess.end) {
+                    const [sh, sm] = sess.start.split(':').map(Number);
+                    const [eh, em] = sess.end.split(':').map(Number);
+                    const durMin = (eh * 60 + em) - (sh * 60 + sm);
+                    periodCount = Math.max(1, Math.round(durMin / 50));
+                  } else {
+                    periodCount = 2;
+                  }
+                } else {
+                  periodCount = 1;
+                }
+              }
               totalConducted += periodCount;
             }
           }
         });
+      }
+    });
+  } else {
+    const schedule = data.subjectSchedule?.[subjectId] || [];
+    schedule.forEach((s) => {
+      if (s.date && s.date >= startDate && s.date <= currentDate && !holidayDates.has(s.date)) {
+        const wDay = new Date(s.date).getDay();
+        if (targetWeekday !== undefined && wDay !== targetWeekday) {
+          return;
+        }
+        if (isSessionFinished(s.date, s.end, s.start)) {
+          let periodCount = s.periods;
+          if (!periodCount || periodCount === 1) {
+            periodCount = isLab ? 2 : 1;
+          }
+          totalConducted += periodCount;
+        }
       }
     });
   }
