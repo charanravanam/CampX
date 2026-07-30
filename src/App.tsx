@@ -94,6 +94,9 @@ export default function App() {
                   onMarkTodaySession={markTodaySession}
                   onNavigateToSubject={handleNavigateToSubject}
                   onNavigateToForecast={() => setActiveTab('forecast')}
+                  subjects={data.subjects}
+                  scheduleMap={data.subjectSchedule}
+                  rawCalendar={data.rawCalendar}
                 />
               </motion.div>
             )}
@@ -128,6 +131,7 @@ export default function App() {
                   subjects={data.subjects}
                   scheduleMap={data.subjectSchedule}
                   rawCalendar={data.rawCalendar}
+                  calendar={data.calendar}
                   subjectMetricsList={subjectMetricsList}
                   currentDate={currentDate}
                   threshold={threshold}

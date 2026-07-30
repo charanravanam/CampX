@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion } from 'motion/react';
 import {
   ShieldCheck,
@@ -9,6 +9,7 @@ import {
   CheckCircle2,
   XCircle,
   ChevronRight,
+  ChevronLeft,
   Check,
   X,
   Calendar,
@@ -17,7 +18,8 @@ import {
   Users,
 } from 'lucide-react';
 
-import { OverallMetrics, TodaySessionInfo, SubjectMetrics } from '../types';
+import { OverallMetrics, TodaySessionInfo, SubjectMetrics, SubjectInfo, ScheduleSession } from '../types';
+import { calculateTodaySessions } from '../utils/attendanceEngine';
 
 interface TodayTabProps {
   overallMetrics: OverallMetrics;
@@ -33,6 +35,9 @@ interface TodayTabProps {
   ) => void;
   onNavigateToSubject?: (subjectId: string) => void;
   onNavigateToForecast?: () => void;
+  subjects?: SubjectInfo[];
+  scheduleMap?: Record<string, ScheduleSession[]>;
+  rawCalendar?: Record<string, { subjectId: number | string; periods: number; start: string; end: string }[]>;
 }
 
 export const TodayTab: React.FC<TodayTabProps> = ({
@@ -45,9 +50,88 @@ export const TodayTab: React.FC<TodayTabProps> = ({
   onMarkTodaySession,
   onNavigateToSubject,
   onNavigateToForecast,
+  subjects,
+  scheduleMap,
+  rawCalendar,
 }) => {
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [refreshToast, setRefreshToast] = useState(false);
+  const [selectedDate, setSelectedDate] = useState<string>(currentDate);
+
+  // Array of past 7 days up to currentDate (8 days total: today - 7 days to today)
+  const past7Days = useMemo(() => {
+    const parts = currentDate.split('-');
+    if (parts.length !== 3) return [currentDate];
+    const base = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+    const result: string[] = [];
+    for (let i = 7; i >= 0; i--) {
+      const d = new Date(base);
+      d.setDate(base.getDate() - i);
+      const y = d.getFullYear();
+      const m = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      result.push(`${y}-${m}-${day}`);
+    }
+    return result;
+  }, [currentDate]);
+
+  const currentIndex = useMemo(() => {
+    const idx = past7Days.indexOf(selectedDate);
+    return idx >= 0 ? idx : past7Days.length - 1;
+  }, [past7Days, selectedDate]);
+
+  const handlePrevDay = () => {
+    if (currentIndex > 0) {
+      setSelectedDate(past7Days[currentIndex - 1]);
+    }
+  };
+
+  const handleNextDay = () => {
+    if (currentIndex < past7Days.length - 1) {
+      setSelectedDate(past7Days[currentIndex + 1]);
+    }
+  };
+
+  const formattedSelectedDate = useMemo(() => {
+    if (!selectedDate) return '';
+    try {
+      const parts = selectedDate.split('-');
+      if (parts.length === 3) {
+        const dObj = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+        const formatted = dObj.toLocaleDateString('en-US', {
+          weekday: 'short',
+          month: 'short',
+          day: 'numeric',
+          year: 'numeric',
+        });
+        return selectedDate === currentDate ? `Today • ${formatted}` : formatted;
+      }
+      return selectedDate;
+    } catch {
+      return selectedDate;
+    }
+  }, [selectedDate, currentDate]);
+
+  const activeSessions = useMemo(() => {
+    if (selectedDate === currentDate && todaySessions) {
+      return todaySessions;
+    }
+    if (subjects && scheduleMap) {
+      return calculateTodaySessions(
+        selectedDate,
+        subjects,
+        scheduleMap,
+        subjectMetricsMap,
+        threshold,
+        rawCalendar
+      );
+    }
+    return todaySessions;
+  }, [selectedDate, currentDate, todaySessions, subjects, scheduleMap, subjectMetricsMap, threshold, rawCalendar]);
+
+  const totalDayPeriods = useMemo(() => {
+    return activeSessions.reduce((sum, s) => sum + (s.session.periods || 1), 0);
+  }, [activeSessions]);
 
   const handleRefreshHome = () => {
     setIsRefreshing(true);
@@ -194,37 +278,104 @@ export const TodayTab: React.FC<TodayTabProps> = ({
         </div>
       </motion.div>
 
-      {/* TODAY'S CHRONOLOGICAL SCHEDULE SECTION */}
+      {/* DAY SELECTOR BAR & QUICK DATE CHIPS */}
+      <div className="space-y-2">
+        <div className="bg-white rounded-2xl p-3 border border-slate-200 flex items-center justify-between shadow-xs">
+          <button
+            type="button"
+            onClick={handlePrevDay}
+            disabled={currentIndex <= 0}
+            className="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 disabled:opacity-30 transition min-w-[44px] min-h-[44px] flex items-center justify-center"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+
+          <div className="text-center">
+            <div className="text-sm font-bold text-emerald-700 flex items-center justify-center gap-1.5">
+              <Calendar className="w-4 h-4 text-emerald-600" />
+              <span>{formattedSelectedDate}</span>
+            </div>
+            <div className="text-xs text-slate-500 mt-0.5">
+              {totalDayPeriods} Period{totalDayPeriods !== 1 ? 's' : ''} Scheduled
+            </div>
+          </div>
+
+          <button
+            type="button"
+            onClick={handleNextDay}
+            disabled={currentIndex >= past7Days.length - 1}
+            className="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 disabled:opacity-30 transition min-w-[44px] min-h-[44px] flex items-center justify-center"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </div>
+
+        {/* QUICK DATE CHIPS */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+          {past7Days.map((d) => {
+            const isSelected = d === selectedDate;
+            const isToday = d === currentDate;
+            const dObj = new Date(d);
+            const dayName = isToday ? 'TODAY' : dObj.toLocaleDateString('en-US', { weekday: 'short' }).toUpperCase();
+            const dayNum = dObj.getDate();
+
+            return (
+              <button
+                key={d}
+                type="button"
+                onClick={() => setSelectedDate(d)}
+                className={`shrink-0 py-2 px-3 rounded-xl border text-center transition ${
+                  isSelected
+                    ? 'bg-emerald-600 text-white border-emerald-600 font-extrabold shadow-xs'
+                    : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
+                }`}
+              >
+                <div className="text-[10px] font-bold tracking-wider">{dayName}</div>
+                <div className="text-sm font-bold">{dayNum}</div>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* CHRONOLOGICAL SCHEDULE SECTION */}
       <div className="space-y-2.5">
         <div className="flex items-center justify-between px-1">
           <div>
             <h3 className="text-sm sm:text-base font-bold text-slate-900 flex items-center gap-1.5">
-              <span>Today's Schedule</span>
-              <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200">
-                {currentDate}
+              <span>{selectedDate === currentDate ? "Today's Schedule" : "Schedule"}</span>
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">
+                {selectedDate}
               </span>
             </h3>
-            <p className="text-[11px] text-slate-500">Ordered chronologically from 09:10 AM to 16:00 PM</p>
+            <p className="text-[11px] text-slate-500">
+              {selectedDate === currentDate
+                ? 'Ordered chronologically from 09:10 AM to 16:00 PM'
+                : `Mark or edit attendance records for ${selectedDate}`}
+            </p>
           </div>
 
-          {todaySessions.length > 0 && (
+          {activeSessions.length > 0 && (
             <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
-              {todaySessions.length} Class{todaySessions.length > 1 ? 'es' : ''}
+              {activeSessions.length} Class{activeSessions.length > 1 ? 'es' : ''}
             </span>
           )}
         </div>
 
-        {todaySessions.length === 0 ? (
+        {activeSessions.length === 0 ? (
           <div className="bg-white rounded-2xl p-6 border border-slate-200 text-center shadow-xs">
             <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center mx-auto mb-2 text-slate-500">
               <Calendar className="w-5 h-5" />
             </div>
-            <h4 className="text-sm font-bold text-slate-900">No classes scheduled for today</h4>
+            <h4 className="text-sm font-bold text-slate-900">
+              {selectedDate === currentDate ? 'No classes scheduled for today' : `No classes scheduled for ${selectedDate}`}
+            </h4>
             <p className="text-xs text-slate-500 mt-1 mb-3">
               Check your weekly forecast to prepare for upcoming lectures & labs.
             </p>
             {onNavigateToForecast && (
               <button
+                type="button"
                 onClick={onNavigateToForecast}
                 className="inline-flex items-center gap-1 text-xs font-bold text-emerald-700 hover:text-emerald-800"
               >
@@ -235,9 +386,9 @@ export const TodayTab: React.FC<TodayTabProps> = ({
           </div>
         ) : (
           <div className="space-y-2.5">
-            {todaySessions.map((ts, idx) => {
+            {activeSessions.map((ts, idx) => {
               const sm = subjectMetricsMap[ts.subject.id];
-              const sessionKey = `${currentDate}_${ts.subject.id}_${ts.session.start || idx}`;
+              const sessionKey = `${selectedDate}_${ts.subject.id}_${ts.session.start || idx}`;
               const currentMark = todayMarks[sessionKey];
 
               // Evaluated by semester-wide equation considering total semester classes, attended till date, future implications, and lab priority
@@ -323,7 +474,7 @@ export const TodayTab: React.FC<TodayTabProps> = ({
                   {/* DAILY MARK ATTENDANCE ACTION BUTTONS */}
                   <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between gap-3">
                     <span className="text-xs font-bold uppercase tracking-wider text-slate-400 shrink-0">
-                      Today:
+                      {selectedDate === currentDate ? 'Today:' : 'Status:'}
                     </span>
 
                     {currentMark === 'exempt' ? (

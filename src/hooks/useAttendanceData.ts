@@ -311,11 +311,16 @@ export function useAttendanceData() {
       setStudentStates((prevStates) => {
         const nextStates = { ...prevStates };
 
+        // Extract date from sessionKey (e.g. "2026-07-29_1_09:10" -> "2026-07-29")
+        const sessionDate = sessionKey.split('_')[0] || currentDate;
+
         const updateSubject = (sId: string, fromStatus?: string, toStatus?: string) => {
           const defaultSubj = data.subjects.find((s) => s.id === sId);
-          const sessionInToday = data.subjectSchedule?.[sId]?.find((s) => s.date === currentDate) ||
-            (data.rawCalendar?.[currentDate]?.find((s) => String(s.subjectId) === String(sId)));
-          const weight = sessionInToday?.periods || 1;
+          const isDesignThinking = defaultSubj?.name.toLowerCase().includes('design thinking');
+          const isLab = !isDesignThinking && (defaultSubj?.type === 'lab' || defaultSubj?.name.toLowerCase().includes('lab'));
+          const sessionInDate = data.subjectSchedule?.[sId]?.find((s) => s.date === sessionDate) ||
+            (data.rawCalendar?.[sessionDate]?.find((s) => String(s.subjectId) === String(sId)));
+          const weight = isLab ? 2 : (sessionInDate?.periods || 1);
           const calculatedTotal = calculateConductedPeriods(sId, currentDate, data);
           const defaultPct = defaultSubj?.defaultTotal && defaultSubj.defaultTotal > 0 ? (defaultSubj.defaultAttended / defaultSubj.defaultTotal) : 0.8;
           const current = nextStates[sId] || {

@@ -22,10 +22,14 @@ export function calculateConductedPeriods(
     subjectSchedule?: Record<string, ScheduleSession[]>;
     calendar?: Array<{ date: string; type?: string; status?: string; isHoliday?: boolean }>;
     rawCalendar?: Record<string, any[]>;
-  }
+  },
+  currentTime?: string
 ): number {
   const startDate = data.metadata?.startDate || '2026-07-06';
   const schedule = data.subjectSchedule?.[subjectId] || [];
+  const subject = data.subjects?.find((s) => String(s.id) === String(subjectId));
+  const isDesignThinking = subject?.name.toLowerCase().includes('design thinking');
+  const isLab = !isDesignThinking && (subject?.type === 'lab' || subject?.name.toLowerCase().includes('lab'));
 
   // Build a set of non-instructional / holiday / suspended dates
   const holidayDates = new Set<string>();
@@ -42,12 +46,62 @@ export function calculateConductedPeriods(
     });
   }
 
+  const now = new Date();
+  const todayDateStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+
+  let effectiveTime = currentTime;
+  if (!effectiveTime) {
+    const hh = String(now.getHours()).padStart(2, '0');
+    const mm = String(now.getMinutes()).padStart(2, '0');
+    effectiveTime = `${hh}:${mm}`;
+  }
+
+  const isSessionFinished = (sessionDate: string, sessionEndTime?: string, sessionStartTime?: string): boolean => {
+    if (sessionDate < currentDate) return true;
+    if (sessionDate > currentDate) return false;
+
+    // sessionDate === currentDate
+    // If currentDate is in the past relative to real today, the whole day is finished
+    if (!currentTime && currentDate < todayDateStr) return true;
+    // If currentDate is in the future relative to real today, none of today's sessions have started
+    if (!currentTime && currentDate > todayDateStr) return false;
+
+    // Compare time for currentDate
+    if (sessionEndTime) {
+      return sessionEndTime <= effectiveTime;
+    }
+    if (sessionStartTime) {
+      return sessionStartTime <= effectiveTime;
+    }
+    return true;
+  };
+
   let totalConducted = 0;
 
   if (schedule.length > 0) {
     schedule.forEach((s) => {
-      if (s.date >= startDate && s.date <= currentDate && !holidayDates.has(s.date)) {
-        totalConducted += typeof s.periods === 'number' && s.periods > 0 ? s.periods : 1;
+      if (s.date && s.date >= startDate && s.date <= currentDate && !holidayDates.has(s.date)) {
+        let endTime = s.end;
+        let startTime = s.start;
+
+        if (s.date === currentDate && (!endTime || !startTime) && data.rawCalendar?.[currentDate]) {
+          const rawMatch = data.rawCalendar[currentDate].find(
+            (r: any) => String(r.subjectId) === String(subjectId)
+          );
+          if (rawMatch) {
+            endTime = endTime || rawMatch.end;
+            startTime = startTime || rawMatch.start;
+          }
+        }
+
+        if (isSessionFinished(s.date, endTime, startTime)) {
+          const periodCount = isLab
+            ? 2
+            : typeof s.periods === 'number' && s.periods > 0
+            ? s.periods
+            : 1;
+          totalConducted += periodCount;
+        }
       }
     });
   } else if (data.rawCalendar) {
@@ -55,7 +109,14 @@ export function calculateConductedPeriods(
       if (date >= startDate && date <= currentDate && !holidayDates.has(date)) {
         sessions.forEach((sess: any) => {
           if (String(sess.subjectId) === String(subjectId)) {
-            totalConducted += typeof sess.periods === 'number' && sess.periods > 0 ? sess.periods : 1;
+            if (isSessionFinished(date, sess.end, sess.start)) {
+              const periodCount = isLab
+                ? 2
+                : typeof sess.periods === 'number' && sess.periods > 0
+                ? sess.periods
+                : 1;
+              totalConducted += periodCount;
+            }
           }
         });
       }
@@ -156,8 +217,8 @@ export function calculateSubjectMetrics(
   const attended = Math.max(0, state.attended);
   const total = Math.max(attended, state.total);
   const currentPercentage = calculateCurrentAttendance(attended, total);
-
-  const isLab = subject.type === 'lab' || subject.name.toLowerCase().includes('lab');
+  const isDesignThinking = subject.name.toLowerCase().includes('design thinking');
+  const isLab = !isDesignThinking && (subject.type === 'lab' || subject.name.toLowerCase().includes('lab'));
 
   // Total classes scheduled in the timetable for this subject across the whole semester
   const totalClassesInSchedule = schedule.reduce((acc, s) => acc + (typeof s.periods === 'number' && s.periods > 0 ? s.periods : 1), 0);
@@ -313,7 +374,8 @@ export function evaluateSemesterSkippability(
   // 2. Class Type Priority (Lab vs Lecture)
   // Labs have fewer total classes in a semester, so missing a lab consumes a larger fraction
   // of total lab classes and is significantly harder to recover from.
-  const isLab = subject.type === 'lab';
+  const isDesignThinking = subject.name.toLowerCase().includes('design thinking');
+  const isLab = !isDesignThinking && subject.type === 'lab';
   const typeWeight = isLab ? 2.2 : 1.0;
 
   // 3. Current Overall Buffer Check
@@ -407,7 +469,9 @@ export function calculateTodaySessions(
       const sm = subjectsMetricsMap[subject.id];
       if (!sm) continue;
 
-      const sessionPeriods = typeof calItem.periods === 'number' && calItem.periods > 0 ? calItem.periods : 1;
+      const isDesignThinking = subject.name.toLowerCase().includes('design thinking');
+      const isLab = !isDesignThinking && (subject.type === 'lab' || subject.name.toLowerCase().includes('lab'));
+      const sessionPeriods = isLab ? 2 : (typeof calItem.periods === 'number' && calItem.periods > 0 ? calItem.periods : 1);
       const session: ScheduleSession = {
         date: todayDate,
         periods: sessionPeriods,
@@ -605,3 +669,136 @@ export function simulateAttendanceScenarios(
     },
   };
 }
+
+export interface TargetAttendanceDateResult {
+  targetDate: string | null;
+  formattedDate: string;
+  isAlreadyReached: boolean;
+  isUnachievable: boolean;
+}
+
+/**
+ * Calculates the date on which required attendance threshold will be reached
+ * if the student attends every remaining class continuously.
+ */
+export function calculateTargetAttendanceDate(
+  subjectMetricsList: SubjectMetrics[],
+  data: {
+    subjects: SubjectInfo[];
+    subjectSchedule?: Record<string, ScheduleSession[]>;
+    calendar?: Array<{ date: string; type?: string; status?: string; isHoliday?: boolean }>;
+    rawCalendar?: Record<string, any[]>;
+  },
+  currentDate: string,
+  threshold: number = 0.75
+): TargetAttendanceDateResult {
+  const formatPretty = (dateStr: string) => {
+    if (!dateStr) return '';
+    try {
+      const parts = dateStr.split('-');
+      if (parts.length === 3) {
+        const dObj = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+        return dObj.toLocaleDateString('en-US', {
+          month: 'short',
+          day: 'numeric',
+          year: 'numeric',
+        });
+      }
+      return dateStr;
+    } catch {
+      return dateStr;
+    }
+  };
+
+  const totalAttended = subjectMetricsList.reduce((acc, sm) => acc + sm.attended, 0);
+  const totalPeriods = subjectMetricsList.reduce((acc, sm) => acc + sm.total, 0);
+
+  // If already at or above threshold
+  if (totalPeriods > 0 && totalAttended / totalPeriods >= threshold) {
+    return {
+      targetDate: currentDate,
+      formattedDate: formatPretty(currentDate),
+      isAlreadyReached: true,
+      isUnachievable: false,
+    };
+  }
+
+  // Build holiday set
+  const holidayDates = new Set<string>();
+  if (data.calendar) {
+    data.calendar.forEach((item) => {
+      if (item.type === 'holiday' || item.status === 'holiday' || item.isHoliday) {
+        holidayDates.add(item.date);
+      }
+    });
+  }
+
+  // Collect all future dates starting from currentDate
+  const futureDatesSet = new Set<string>();
+  if (data.rawCalendar) {
+    Object.keys(data.rawCalendar).forEach((d) => {
+      if (d >= currentDate && !holidayDates.has(d)) {
+        futureDatesSet.add(d);
+      }
+    });
+  }
+  if (data.subjectSchedule) {
+    Object.values(data.subjectSchedule).forEach((sessions) => {
+      sessions.forEach((s) => {
+        if (s.date && s.date >= currentDate && !holidayDates.has(s.date)) {
+          futureDatesSet.add(s.date);
+        }
+      });
+    });
+  }
+
+  const sortedFutureDates = Array.from(futureDatesSet).sort();
+
+  let simAttended = totalAttended;
+  let simTotal = totalPeriods;
+
+  for (const date of sortedFutureDates) {
+    let dayPeriods = 0;
+    const calSessions = data.rawCalendar?.[date];
+
+    if (calSessions && calSessions.length > 0) {
+      calSessions.forEach((cs: any) => {
+        const subj = data.subjects.find((s) => String(s.id) === String(cs.subjectId));
+        const isDesignThinking = subj?.name.toLowerCase().includes('design thinking');
+        const isLab = !isDesignThinking && (subj?.type === 'lab' || subj?.name.toLowerCase().includes('lab'));
+        dayPeriods += isLab ? 2 : typeof cs.periods === 'number' && cs.periods > 0 ? cs.periods : 1;
+      });
+    } else if (data.subjectSchedule) {
+      data.subjects.forEach((subj) => {
+        const matches = (data.subjectSchedule?.[subj.id] || []).filter((s) => s.date === date);
+        matches.forEach((m) => {
+          const isDesignThinking = subj.name.toLowerCase().includes('design thinking');
+          const isLab = !isDesignThinking && (subj.type === 'lab' || subj.name.toLowerCase().includes('lab'));
+          dayPeriods += isLab ? 2 : typeof m.periods === 'number' && m.periods > 0 ? m.periods : 1;
+        });
+      });
+    }
+
+    if (dayPeriods > 0) {
+      simAttended += dayPeriods;
+      simTotal += dayPeriods;
+
+      if (simAttended / simTotal >= threshold) {
+        return {
+          targetDate: date,
+          formattedDate: formatPretty(date),
+          isAlreadyReached: false,
+          isUnachievable: false,
+        };
+      }
+    }
+  }
+
+  return {
+    targetDate: null,
+    formattedDate: 'Not achievable this semester',
+    isAlreadyReached: false,
+    isUnachievable: true,
+  };
+}
+

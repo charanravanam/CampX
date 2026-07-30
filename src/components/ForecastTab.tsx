@@ -11,6 +11,7 @@ import {
   TrendingUp,
   TrendingDown,
   Sparkles,
+  Target,
 } from 'lucide-react';
 
 import {
@@ -20,12 +21,16 @@ import {
   OverallMetrics,
 } from '../types';
 
-import { simulateAttendanceScenarios } from '../utils/attendanceEngine';
+import {
+  simulateAttendanceScenarios,
+  calculateTargetAttendanceDate,
+} from '../utils/attendanceEngine';
 
 interface ForecastTabProps {
   subjects: SubjectInfo[];
   scheduleMap: Record<string, ScheduleSession[]>;
   rawCalendar?: Record<string, { subjectId: number | string; periods: number; start: string; end: string }[]>;
+  calendar?: Array<{ date: string; type?: string; status?: string; isHoliday?: boolean }>;
   subjectMetricsList: SubjectMetrics[];
   currentDate: string; // YYYY-MM-DD
   threshold: number;
@@ -35,6 +40,7 @@ export const ForecastTab: React.FC<ForecastTabProps> = ({
   subjects,
   scheduleMap,
   rawCalendar,
+  calendar,
   subjectMetricsList,
   currentDate,
   threshold,
@@ -46,6 +52,21 @@ export const ForecastTab: React.FC<ForecastTabProps> = ({
   React.useEffect(() => {
     setSelectedDate(currentDate);
   }, [currentDate]);
+
+  // Dynamically calculate date to reach required attendance
+  const targetDateInfo = useMemo(() => {
+    return calculateTargetAttendanceDate(
+      subjectMetricsList,
+      {
+        subjects,
+        subjectSchedule: scheduleMap,
+        rawCalendar,
+        calendar,
+      },
+      currentDate,
+      threshold
+    );
+  }, [subjectMetricsList, subjects, scheduleMap, rawCalendar, calendar, currentDate, threshold]);
 
   // Collect all unique dates in schedule sorted
   const allDates = useMemo(() => {
@@ -82,11 +103,13 @@ export const ForecastTab: React.FC<ForecastTabProps> = ({
       calSessions.forEach((item) => {
         const subj = subjects.find((s) => s.id === item.subjectId.toString());
         if (subj) {
+          const isDesignThinking = subj.name.toLowerCase().includes('design thinking');
+          const isLab = !isDesignThinking && (subj.type === 'lab' || subj.name.toLowerCase().includes('lab'));
           list.push({
             subject: subj,
             session: {
               date: selectedDate,
-              periods: item.periods,
+              periods: isLab ? 2 : (item.periods || 1),
               start: item.start,
               end: item.end,
               time: `${item.start} - ${item.end}`,
@@ -152,6 +175,26 @@ export const ForecastTab: React.FC<ForecastTabProps> = ({
         <div>
           <h2 className="text-xl font-extrabold text-slate-900">Attendance Forecast</h2>
           <p className="text-xs text-slate-500">Simulate upcoming schedule impacts instantly</p>
+        </div>
+      </div>
+
+      {/* CONTINUOUS ATTENDANCE TARGET SECTION */}
+      <div className="bg-gradient-to-r from-emerald-50 via-teal-50/60 to-indigo-50/50 border border-emerald-200/80 rounded-2xl p-3.5 shadow-xs">
+        <div className="flex items-start gap-3">
+          <div className="p-2 rounded-xl bg-emerald-600 text-white shrink-0 mt-0.5 shadow-xs">
+            <Target className="w-4 h-4" />
+          </div>
+          <div className="space-y-1">
+            <span className="text-[10px] font-extrabold uppercase tracking-wider text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full border border-emerald-200 inline-block">
+              Continuous Target Milestone
+            </span>
+            <p className="text-xs sm:text-sm font-medium text-slate-800 leading-snug">
+              If you attend every remaining class continuously, you will reach the required attendance on:{' '}
+              <span className="font-extrabold text-emerald-800 bg-emerald-200/70 px-2 py-0.5 rounded border border-emerald-300 inline-block mt-0.5">
+                {targetDateInfo.formattedDate}
+              </span>
+            </p>
+          </div>
         </div>
       </div>
 
